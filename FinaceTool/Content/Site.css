@@ -1,0 +1,152 @@
+﻿body {
+    /*padding-top: 50px;*/
+    padding-bottom: 20px;
+    margin-bottom: 60px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+    border-radius:4px;
+    height:25px;
+    padding:3px 6px;
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    border:1px solid #ccc;
+    background-color:#fff;
+}
+
+/* Bootstrap Dropdown Submenu */
+.dropdown-submenu {
+    position: relative;
+}
+ 
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+ 
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+ 
+.dropdown-submenu > a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #cccccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+ 
+.dropdown-submenu:hover > a:after {
+    border-left-color: #ffffff;
+}
+ 
+.dropdown-submenu.pull-left {
+    float: none;
+}
+ 
+.dropdown-submenu.pull-left > .dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+ 
+.navbar-nav .divider-vertical {
+    height: 40px;
+    margin: 0 9px;
+    border-left: 1px solid #f2f2f2;
+    border-right: 1px solid #ffffff;
+}
+
+
+.div_Box{background-color:#ccebff; margin-bottom:20px; padding:10px; border: 1px solid #5fb1e8; border-radius: 5px;}
+.txt_Box {border: 1px solid #ccc; height:24px; border-radius: 10px;}
+.top_heading_margin {margin-top:0px;}
+.Header_BG{background-color:#006699; color:#fff; border-bottom:6px solid #0099ff;}
+.Bottom_BG{background-color:#006699; color:#fff;  height:50px;}
+/*#myNavbar {
+    position: relative;
+}
+
+#myNavbar .nav {
+    position: absolute; 
+    bottom: 0; 
+    right: 10px;
+    margin-bottom: 0px;
+}*/
+#myNavbar {
+    border: 0px !important;
+}
+
+.menu_border_radius{color:#fff; background-color:#0099ff; border-radius: 5px;}
+.color_White {color:#fff;}
+.navbar-text {color:#ffffff!important;}
+
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height 
+  margin-bottom: 60px;*/
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here 
+  height: 60px;*/
+  background-color: #006699;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+/*body > .container {
+  padding: 60px 15px 0;
+}*/
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}

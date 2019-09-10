@@ -1,0 +1,147 @@
+﻿@{
+    //Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+
+<div class="card-header">
+    <i class="fas fa-table"></i>
+    Product Group Details
+</div>
+<br />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+
+    $(function () {
+        debugger;
+        $("#Demogrid").jqGrid
+            ({
+                url: "/ProductGroup/GetProducts",
+                datatype: 'json',
+                mtype: 'Get',
+                //table header name
+                colNames: ['ProductGroupID', 'ProductGroup Name', 'Created By', 'Created Date', 'Modified By', 'Modified Date'],
+                //colModel takes the data from controller and binds to grid
+                colModel: [
+                    {
+                        name: 'ProductGroupID',
+                        editable: true,
+                        key: true,
+                        hidden: true,
+
+                        //search: false
+                    },
+                    {
+                        name: "ProductGroupName", editable: true, editrules: { required: true }/*search: true*/
+                    },
+                    {
+                        name: 'Createdby', editable: false, editrules: { required: false }, search: true
+                    },
+                    {
+                        name: "Createddate",
+                        formatter: 'date', formatoptions: {
+                            srcformat: "Y-m-d H:i:s",
+                            newformat: "m/d/Y H:i",
+                            userLocalTime: true
+                        }, editable: false, editrules: { required: false }, search: false
+                    },
+                    {
+                        name: "Modifiedby", editable: false, editrules: { required: false }, search: false
+                    },
+                    {
+                        name: "ModifiedDate",
+                        formatter: 'date', formatoptions: {
+                            srcformat: "Y-m-d H:i:s",
+                            newformat: "m/d/Y H:i",
+                            userLocalTime: true
+                        }, editable: false, editrules: { required: false, number: false }, search: false
+                    },
+                ],
+                height: '100%',
+                viewrecords: true,
+                caption: 'Edit/Update ProductGroup',
+                emptyrecords: 'No records',
+                rowNum: 10,
+
+                pager: jQuery('#pager'),
+                rowList: [10, 20, 30, 40],
+
+                jsonReader:
+                {
+                    root: "rows",
+                    page: "page",
+                    total: "total",
+                    records: "records",
+                    repeatitems: false,
+                    Id: "0"
+                },
+                autowidth: true
+            }).navGrid('#pager',
+                {
+                    edit: true,
+                    add: true,
+                    del: false,
+                    search: false,
+                    refresh: false,
+                    closeAfterSearch: true
+                },
+                {
+                    // edit option
+                    zIndex: 100,
+                    url: '/ProductGroup/Edit',
+                    closeOnEscape: true,
+                    closeAfterEdit: true,
+                    recreateForm: true,
+                    afterComplete: function (response) {
+                        if (response.responseText) {
+                            alert(response.responseText);
+                        }
+                    }
+                },
+                {
+                    // add option
+                    zIndex: 100,
+                    url: "/ProductGroup/Create",
+                    closeOnEscape: true,
+                    closeAfterAdd: true,
+                    afterComplete: function (response) {
+                        if (response.responseJSON) {
+                            if (response.responseJSON == "Saved Successfully") {
+                                alert("Saved Successfully");
+                            }
+                            else {
+                                var message = "";
+                                for (var i = 0; i < response.responseJSON.length; i++) {
+                                    message += response.responseJSON[i];
+                                    message += "\n";
+                                }
+                            }
+
+                        }
+                    }
+                },
+                {
+                    // delete option
+                    zIndex: 100,
+                    url: "/ProductGroup/Delete",
+                    closeOnEscape: true,
+                    closeAfterDelete: true,
+                    recreateForm: true,
+                    msg: "Are you sure you want to delete this ProductGroup?",
+                    afterComplete: function (response) {
+                        if (response.responseText) {
+                            alert(response.responseText);
+                        }
+                    }
+                }
+
+            );
+    });
+</script>
+<div>
+    <table id="Demogrid"></table>
+    <div id="pager"></div>
+</div>
+
+

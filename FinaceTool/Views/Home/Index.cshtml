@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<script>
+    function LoginValidation() {
+        if ($("#Username").val() == "") {
+            alert("Please enter the Sap Id");
+            return false;
+        }
+        if ($("#Password").val() == "") {
+            alert("Please enter the password");
+            return false;
+        }
+    }
+
+    function ForgetPassword() {
+        if ($("#Username").val() == "") {
+            alert("Please enter the Sap Id");
+            return false;
+        }
+        $.ajax({
+            url: "/Login/ForgetPassword",
+            type: "get",
+            data: "Username=" + $("#Username").val(),
+            async: false,
+            success: function (data) {
+                alert(data);
+            }
+        });
+    }
+</script>
+
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<form action="/" method="post">
+    <input name="__RequestVerificationToken" type="hidden" value="3DyuMOt-TyBhqtH7aBSNtPbSy91J4LfdIqMUDoiXETsxxD9KDATbUfjSZrtFMjoGv8PxT1Nfxc77Ruvkws7XiRwGTZprZ1S3Wc67WT_kMUo1" />    <body>
+        <div class="jumbotron" style="background-color:#fff; margin:0px!important; padding:40px 0px 0px 0px; ">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                        <div class="panel panel-success panel-set">
+                            <div class="panel-heading">
+                                Login Details
+                            </div>
+                            <div class="panel-body">
+                                <label>Enter Sap ID</label>
+                                <span class="field-validation-valid" data-valmsg-for="Username" data-valmsg-replace="true"></span>
+                                <input class="form-control" data-val="true" data-val-required="The User name field is required." id="Username" name="Username" type="text" value="" />
+
+                                <label>Enter Password </label>
+                                <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" type="password" />
+                                <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+
+
+                                <hr>
+                                <span> <button onclick="return LoginValidation();" type="submit" id="filterButton" name="Search" class="btn btn-primary">Sign In </button></span>
+                                <span class="pull-right"><a onclick="return ForgetPassword();" style="font-size: 12px; color:#428bca;">Forgot Password?</a></span>
+                            </div>
+                            <div class="panel-footer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </body>
+</form>
+
+
+
+
+
+
+ </div>
+
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eeda1283e5834568b370aab25a48831f" Name="Diagram1">
+        <EntityTypeShape EntityType="FinanceToolModel.customer" Width="1.5" PointX="10.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.DealStage" Width="1.5" PointX="10.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.DU" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.DUHTestTable" Width="1.5" PointX="10.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.LOB" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.Opportunity" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.OpportunityForecastBySale" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.OpportunityForecastBySales2" Width="1.5" PointX="12.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.ProductGroup" Width="1.5" PointX="12.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.Project" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.ProjectActualByDUH" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.ProjectForecastByDUH" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.Quater" Width="1.5" PointX="6" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.Quater1" Width="1.5" PointX="12.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.Role" Width="1.5" PointX="0.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.SDU" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.ServiceLine" Width="1.5" PointX="12.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.SOWStatu" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.User" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.UserAccess" Width="1.5" PointX="14.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.Opportunity_Latest" Width="1.5" PointX="14.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.quater_Actual" Width="1.5" PointX="7.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceToolModel.database_firewall_rules" Width="1.5" PointX="9.75" PointY="15.125" IsExpanded="true" />
+        <AssociationConnector Association="FinanceToolModel.FK_DUHeadID" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.FK_SDUIDFORDU" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.FK__Opportuni__LobId__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.FK_LOBID" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.FK_Project_OpportunityID" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.FK_ProjectActualByDUHOpportunityID" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.FK_ProjectForecastByDUHOpportunityID" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.FK__Opportuni__Quate__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.FK_Project_SowStatusID" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.fk_QuaterID" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.frk_QuaterID" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceToolModel.FK_User_RoleID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

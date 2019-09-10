@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinanceToolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="DealStage">
+    <Key>
+      <PropertyRef Name="DealStageID" />
+    </Key>
+    <Property Name="DealStageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DealStage" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="probability" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DU">
+    <Key>
+      <PropertyRef Name="DUID" />
+    </Key>
+    <Property Name="DUID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AMID" Type="int" Nullable="false" />
+    <Property Name="DUName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SDUID" Type="int" Nullable="false" />
+    <Property Name="DUHeadID" Type="int" Nullable="false" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="DUHTestTable">
+    <Key>
+      <PropertyRef Name="S_No" />
+    </Key>
+    <Property Name="S_No" Type="bigint" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="255" />
+    <Property Name="AMName" Type="varchar" MaxLength="255" />
+    <Property Name="LOBName" Type="varchar" MaxLength="255" />
+    <Property Name="DUName" Type="varchar" MaxLength="255" />
+    <Property Name="DBBLDU" Type="varchar" MaxLength="255" />
+    <Property Name="OpportunityID" Type="int" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="255" />
+    <Property Name="ProgramName" Type="varchar" MaxLength="255" />
+    <Property Name="ServiceLine" Type="varchar" MaxLength="255" />
+    <Property Name="ProductGroup" Type="varchar" MaxLength="255" />
+    <Property Name="sowvalue" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="poavailable" Type="bit" />
+    <Property Name="pobalance" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AMJ19_FC" Type="int" />
+    <Property Name="AMJ19_Act" Type="int" />
+  </EntityType>
+  <EntityType Name="LOB">
+    <Key>
+      <PropertyRef Name="LOBID" />
+    </Key>
+    <Property Name="LOBID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LOBName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Opportunity">
+    <Key>
+      <PropertyRef Name="OpportunityID" />
+    </Key>
+    <Property Name="OpportunityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OpportunityName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DealStageID" Type="int" Nullable="false" />
+    <Property Name="SowStatusID" Type="int" Nullable="false" />
+    <Property Name="AMID" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="ProgramName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ServiceLineID" Type="int" Nullable="false" />
+    <Property Name="ProductGroupID" Type="int" Nullable="false" />
+    <Property Name="DBBLDUID" Type="int" Nullable="false" />
+    <Property Name="TCV" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="acv" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="sowvalue" Type="int" />
+    <Property Name="BillingStratDate" Type="date" />
+    <Property Name="Note" Type="varchar" MaxLength="255" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="SalesForceCastID" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="SalesForceGuid" Type="bigint" />
+    <Property Name="DUID" Type="int" />
+    <Property Name="LobId" Type="int" />
+    <Property Name="SowStatusValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Userid" Type="int" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="IsMapped" Type="bit" />
+    <Property Name="IsUpdated" Type="bit" Nullable="false" />
+    <Property Name="IsDUHUpdated" Type="bit" Nullable="false" />
+    <Property Name="OpportunityCategory" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FinanceTool.dbo.Opportunity_Latest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Opportunity_Latest">
+    <Key>
+      <PropertyRef Name="OpportunityID" />
+      <PropertyRef Name="OpportunityName" />
+      <PropertyRef Name="DealStageID" />
+      <PropertyRef Name="SowStatusID" />
+      <PropertyRef Name="AMID" />
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="ProgramName" />
+      <PropertyRef Name="ServiceLineID" />
+      <PropertyRef Name="ProductGroupID" />
+      <PropertyRef Name="DBBLDUID" />
+      <PropertyRef Name="Createdby" />
+      <PropertyRef Name="Modifiedby" />
+      <PropertyRef Name="SalesForceCastID" />
+      <PropertyRef Name="IsUpdated" />
+    </Key>
+    <Property Name="OpportunityID" Type="int" Nullable="false" />
+    <Property Name="OpportunityName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DealStageID" Type="int" Nullable="false" />
+    <Property Name="SowStatusID" Type="int" Nullable="false" />
+    <Property Name="AMID" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="ProgramName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ServiceLineID" Type="int" Nullable="false" />
+    <Property Name="ProductGroupID" Type="int" Nullable="false" />
+    <Property Name="DBBLDUID" Type="int" Nullable="false" />
+    <Property Name="TCV" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="acv" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="sowvalue" Type="int" />
+    <Property Name="BillingStratDate" Type="date" />
+    <Property Name="Note" Type="varchar" MaxLength="255" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="SalesForceCastID" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="SalesForceGuid" Type="bigint" />
+    <Property Name="DUID" Type="int" />
+    <Property Name="LobId" Type="int" />
+    <Property Name="SowStatusValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Userid" Type="int" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="IsMapped" Type="bit" />
+    <Property Name="IsUpdated" Type="bit" Nullable="false" />
+    <Property Name="OpportunityCategory" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OpportunityForecastBySales">
+    <Key>
+      <PropertyRef Name="SalesForceCastID" />
+    </Key>
+    <Property Name="SalesForceCastID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuaterID" Type="int" Nullable="false" />
+    <Property Name="forecastvaluebysales" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="SalesForceGuid" Type="bigint" />
+  </EntityType>
+  <EntityType Name="OpportunityForecastBySales2">
+    <Key>
+      <PropertyRef Name="SalesForceCastID" />
+    </Key>
+    <Property Name="SalesForceCastID" Type="int" Nullable="false" />
+    <Property Name="QuaterID" Type="int" Nullable="false" />
+    <Property Name="forecastvaluebysales" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProductGroup">
+    <Key>
+      <PropertyRef Name="ProductGroupID" />
+    </Key>
+    <Property Name="ProductGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductGroupName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="OpportunityID" Type="int" Nullable="false" />
+    <Property Name="SowStatusID" Type="int" Nullable="false" />
+    <Property Name="poavilable" Type="varchar" MaxLength="1" />
+    <Property Name="Note" Type="nvarchar" MaxLength="255" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="pobalance" Type="varchar" MaxLength="10" />
+    <Property Name="ProjectCode" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ProjectActualByDUH">
+    <Key>
+      <PropertyRef Name="duhactualid" />
+    </Key>
+    <Property Name="duhactualid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OpportunityID" Type="int" Nullable="false" />
+    <Property Name="actualvaluebyduh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="QuaterID" Type="int" />
+    <Property Name="IsNew" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectForecastByDUH">
+    <Key>
+      <PropertyRef Name="DUhforecastid" />
+    </Key>
+    <Property Name="DUhforecastid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OpportunityID" Type="int" Nullable="false" />
+    <Property Name="forecastvaluebyduh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="QuaterID" Type="int" />
+    <Property Name="IsNew" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quater">
+    <Key>
+      <PropertyRef Name="QuaterID" />
+    </Key>
+    <Property Name="QuaterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StratDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="QuaterName" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="QuaterNumber" Type="int" />
+    <Property Name="year" Type="int" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FinanceTool.dbo.quater_Actual' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="quater_Actual">
+    <Key>
+      <PropertyRef Name="QuaterID" />
+      <PropertyRef Name="StratDate" />
+      <PropertyRef Name="EndDate" />
+      <PropertyRef Name="Createdby" />
+      <PropertyRef Name="Modifiedby" />
+    </Key>
+    <Property Name="QuaterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StratDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="QuaterName" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="QuaterNumber" Type="int" />
+    <Property Name="year" Type="int" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Quater1">
+    <Key>
+      <PropertyRef Name="QuaterID" />
+    </Key>
+    <Property Name="QuaterID" Type="int" Nullable="false" />
+    <Property Name="StratDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="QuaterName" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="QuaterNumber" Type="int" />
+    <Property Name="year" Type="int" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="SDU">
+    <Key>
+      <PropertyRef Name="SDUID" />
+    </Key>
+    <Property Name="SDUID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SDUName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LOBID" Type="int" Nullable="false" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="ServiceLine">
+    <Key>
+      <PropertyRef Name="ServiceLineID" />
+    </Key>
+    <Property Name="ServiceLineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceLineName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="SOWStatus">
+    <Key>
+      <PropertyRef Name="SOWStatusID" />
+    </Key>
+    <Property Name="SOWStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SOWStatus" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Comments" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="ISActive" Type="bit" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="UserAccess">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="LOBID" Type="int" Nullable="false" />
+    <Property Name="SDUID" Type="int" Nullable="false" />
+    <Property Name="DUID" Type="int" Nullable="false" />
+    <Property Name="startdate" Type="date" />
+    <Property Name="Enddate" Type="date" />
+    <Property Name="Createdby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Modifiedby" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FinanceTool.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="create_date" Type="datetime" Nullable="false" />
+    <Property Name="modify_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Opportuni__LobId__0E6E26BF">
+    <End Role="LOB" Type="Self.LOB" Multiplicity="0..1" />
+    <End Role="Opportunity" Type="Self.Opportunity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOB">
+        <PropertyRef Name="LOBID" />
+      </Principal>
+      <Dependent Role="Opportunity">
+        <PropertyRef Name="LobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Opportuni__Quate__6B24EA82">
+    <End Role="Quater" Type="Self.Quater" Multiplicity="1" />
+    <End Role="OpportunityForecastBySales" Type="Self.OpportunityForecastBySales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quater">
+        <PropertyRef Name="QuaterID" />
+      </Principal>
+      <Dependent Role="OpportunityForecastBySales">
+        <PropertyRef Name="QuaterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DUHeadID">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="DU" Type="Self.DU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="DU">
+        <PropertyRef Name="DUHeadID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOBID">
+    <End Role="LOB" Type="Self.LOB" Multiplicity="1" />
+    <End Role="SDU" Type="Self.SDU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOB">
+        <PropertyRef Name="LOBID" />
+      </Principal>
+      <Dependent Role="SDU">
+        <PropertyRef Name="LOBID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_OpportunityID">
+    <End Role="Opportunity" Type="Self.Opportunity" Multiplicity="1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunity">
+        <PropertyRef Name="OpportunityID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="OpportunityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_SowStatusID">
+    <End Role="SOWStatus" Type="Self.SOWStatus" Multiplicity="1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOWStatus">
+        <PropertyRef Name="SOWStatusID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="SowStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectActualByDUHOpportunityID">
+    <End Role="Opportunity" Type="Self.Opportunity" Multiplicity="1" />
+    <End Role="ProjectActualByDUH" Type="Self.ProjectActualByDUH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunity">
+        <PropertyRef Name="OpportunityID" />
+      </Principal>
+      <Dependent Role="ProjectActualByDUH">
+        <PropertyRef Name="OpportunityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectForecastByDUHOpportunityID">
+    <End Role="Opportunity" Type="Self.Opportunity" Multiplicity="1" />
+    <End Role="ProjectForecastByDUH" Type="Self.ProjectForecastByDUH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunity">
+        <PropertyRef Name="OpportunityID" />
+      </Principal>
+      <Dependent Role="ProjectForecastByDUH">
+        <PropertyRef Name="OpportunityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QuaterID">
+    <End Role="Quater" Type="Self.Quater" Multiplicity="0..1" />
+    <End Role="ProjectActualByDUH" Type="Self.ProjectActualByDUH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quater">
+        <PropertyRef Name="QuaterID" />
+      </Principal>
+      <Dependent Role="ProjectActualByDUH">
+        <PropertyRef Name="QuaterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SDUIDFORDU">
+    <End Role="SDU" Type="Self.SDU" Multiplicity="1" />
+    <End Role="DU" Type="Self.DU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SDU">
+        <PropertyRef Name="SDUID" />
+      </Principal>
+      <Dependent Role="DU">
+        <PropertyRef Name="SDUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_RoleID">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="frk_QuaterID">
+    <End Role="Quater" Type="Self.Quater" Multiplicity="0..1" />
+    <End Role="ProjectForecastByDUH" Type="Self.ProjectForecastByDUH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quater">
+        <PropertyRef Name="QuaterID" />
+      </Principal>
+      <Dependent Role="ProjectForecastByDUH">
+        <PropertyRef Name="QuaterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AMTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetAdminMainDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetAdminMainDetails_V1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetAdminMainDetails_V2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetAmDetailsbyProjectId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_GetAmMainDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetAmMainDetails_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetAmMainDetails_V1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetAmMainDetails_V2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetDUHDetails_Comparision" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SDUID" Type="varchar" Mode="In" />
+    <Parameter Name="DUID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_GetDUHDetails_Comparision_OldDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SDUID" Type="varchar" Mode="In" />
+    <Parameter Name="DUID" Type="varchar" Mode="In" />
+    <Parameter Name="Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Usp_GetDUHDetails_Comparision_V1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SDUID" Type="varchar" Mode="In" />
+    <Parameter Name="DUID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_GetDUHDetails_Comparision_V2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SDUID" Type="varchar" Mode="In" />
+    <Parameter Name="DUID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_GetDUHeadMainDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetDUHMainDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetDUHMainDetails_07_02_2019" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetDUHMainDetails_27_06_2019" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetDUHMainDetails_27_06_2019_backup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetDUHMainDetails_V1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetDUHMainDetails_V2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetDUHMainDetailsByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_GetDUHMainDetailsByUserID_V1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_GetDUHMainDetailsByUserID_V2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_GetDUMasterDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetForecastValues" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetOpportunityDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetPMOOpportunityDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetProjectMasterDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetSDUMasterDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_GetUserMasterDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_InsertOpportunityLatest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OpportunityID" Type="int" Mode="In" />
+    <Parameter Name="OpportunityName" Type="varchar" Mode="In" />
+    <Parameter Name="DealStageID" Type="int" Mode="In" />
+    <Parameter Name="SowStatusID" Type="int" Mode="In" />
+    <Parameter Name="AMID" Type="int" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <Parameter Name="ProgramName" Type="varchar" Mode="In" />
+    <Parameter Name="ServiceLineID" Type="int" Mode="In" />
+    <Parameter Name="ProductGroupID" Type="int" Mode="In" />
+    <Parameter Name="DBBLDUID" Type="int" Mode="In" />
+    <Parameter Name="TCV" Type="decimal" Mode="In" />
+    <Parameter Name="acv" Type="decimal" Mode="In" />
+    <Parameter Name="sowvalue" Type="int" Mode="In" />
+    <Parameter Name="BillingStratDate" Type="datetime" Mode="In" />
+    <Parameter Name="Note" Type="varchar" Mode="In" />
+    <Parameter Name="Createdby" Type="varchar" Mode="In" />
+    <Parameter Name="Createddate" Type="datetime" Mode="In" />
+    <Parameter Name="Modifiedby" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="SalesForceCastID" Type="int" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="SalesForceGuid" Type="bigint" Mode="In" />
+    <Parameter Name="DUID" Type="int" Mode="In" />
+    <Parameter Name="LobId" Type="int" Mode="In" />
+    <Parameter Name="SowStatusValue" Type="decimal" Mode="In" />
+    <Parameter Name="Userid" Type="int" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="IsMapped" Type="bit" Mode="In" />
+    <Parameter Name="IsUpdated" Type="bit" Mode="In" />
+    <Parameter Name="opportunitycategory" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_Update_Opportunity_IsMapped" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OpportunityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Usp_UpdateIsActiveQuaters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CurrentQuater" Type="varchar" Mode="In" />
+    <Parameter Name="FirstQuater" Type="varchar" Mode="In" />
+    <Parameter Name="SecondQuater" Type="varchar" Mode="In" />
+    <Parameter Name="ThiredQuater" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_UpdateOpportunity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OpportunityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Usp_UpdateOpportunityLatest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OpportunityID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="FinanceToolModelStoreContainer">
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DealStage" EntityType="Self.DealStage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DU" EntityType="Self.DU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DUHTestTable" EntityType="Self.DUHTestTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOB" EntityType="Self.LOB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Opportunity" EntityType="Self.Opportunity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpportunityForecastBySales" EntityType="Self.OpportunityForecastBySales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpportunityForecastBySales2" EntityType="Self.OpportunityForecastBySales2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductGroup" EntityType="Self.ProductGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectActualByDUH" EntityType="Self.ProjectActualByDUH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectForecastByDUH" EntityType="Self.ProjectForecastByDUH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quater" EntityType="Self.Quater" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quater1" EntityType="Self.Quater1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SDU" EntityType="Self.SDU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceLine" EntityType="Self.ServiceLine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOWStatus" EntityType="Self.SOWStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAccess" EntityType="Self.UserAccess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Opportunity_Latest" EntityType="Self.Opportunity_Latest" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Opportunity_Latest].[OpportunityID] AS [OpportunityID], 
+    [Opportunity_Latest].[OpportunityName] AS [OpportunityName], 
+    [Opportunity_Latest].[DealStageID] AS [DealStageID], 
+    [Opportunity_Latest].[SowStatusID] AS [SowStatusID], 
+    [Opportunity_Latest].[AMID] AS [AMID], 
+    [Opportunity_Latest].[CustomerID] AS [CustomerID], 
+    [Opportunity_Latest].[ProgramName] AS [ProgramName], 
+    [Opportunity_Latest].[ServiceLineID] AS [ServiceLineID], 
+    [Opportunity_Latest].[ProductGroupID] AS [ProductGroupID], 
+    [Opportunity_Latest].[DBBLDUID] AS [DBBLDUID], 
+    [Opportunity_Latest].[TCV] AS [TCV], 
+    [Opportunity_Latest].[acv] AS [acv], 
+    [Opportunity_Latest].[sowvalue] AS [sowvalue], 
+    [Opportunity_Latest].[BillingStratDate] AS [BillingStratDate], 
+    [Opportunity_Latest].[Note] AS [Note], 
+    [Opportunity_Latest].[Createdby] AS [Createdby], 
+    [Opportunity_Latest].[Createddate] AS [Createddate], 
+    [Opportunity_Latest].[Modifiedby] AS [Modifiedby], 
+    [Opportunity_Latest].[ModifiedDate] AS [ModifiedDate], 
+    [Opportunity_Latest].[SalesForceCastID] AS [SalesForceCastID], 
+    [Opportunity_Latest].[IsActive] AS [IsActive], 
+    [Opportunity_Latest].[SalesForceGuid] AS [SalesForceGuid], 
+    [Opportunity_Latest].[DUID] AS [DUID], 
+    [Opportunity_Latest].[LobId] AS [LobId], 
+    [Opportunity_Latest].[SowStatusValue] AS [SowStatusValue], 
+    [Opportunity_Latest].[Userid] AS [Userid], 
+    [Opportunity_Latest].[RoleId] AS [RoleId], 
+    [Opportunity_Latest].[IsMapped] AS [IsMapped], 
+    [Opportunity_Latest].[IsUpdated] AS [IsUpdated], 
+    [Opportunity_Latest].[OpportunityCategory] AS [OpportunityCategory]
+    FROM [dbo].[Opportunity_Latest] AS [Opportunity_Latest]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="quater_Actual" EntityType="Self.quater_Actual" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [quater_Actual].[QuaterID] AS [QuaterID], 
+    [quater_Actual].[StratDate] AS [StratDate], 
+    [quater_Actual].[EndDate] AS [EndDate], 
+    [quater_Actual].[QuaterName] AS [QuaterName], 
+    [quater_Actual].[description] AS [description], 
+    [quater_Actual].[QuaterNumber] AS [QuaterNumber], 
+    [quater_Actual].[year] AS [year], 
+    [quater_Actual].[Createdby] AS [Createdby], 
+    [quater_Actual].[Createddate] AS [Createddate], 
+    [quater_Actual].[Modifiedby] AS [Modifiedby], 
+    [quater_Actual].[ModifiedDate] AS [ModifiedDate], 
+    [quater_Actual].[IsActive] AS [IsActive]
+    FROM [dbo].[quater_Actual] AS [quater_Actual]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+      <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Opportuni__LobId__0E6E26BF" Association="Self.FK__Opportuni__LobId__0E6E26BF">
+      <End Role="LOB" EntitySet="LOB" />
+      <End Role="Opportunity" EntitySet="Opportunity" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Opportuni__Quate__6B24EA82" Association="Self.FK__Opportuni__Quate__6B24EA82">
+      <End Role="Quater" EntitySet="Quater" />
+      <End Role="OpportunityForecastBySales" EntitySet="OpportunityForecastBySales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DUHeadID" Association="Self.FK_DUHeadID">
+      <End Role="User" EntitySet="User" />
+      <End Role="DU" EntitySet="DU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOBID" Association="Self.FK_LOBID">
+      <End Role="LOB" EntitySet="LOB" />
+      <End Role="SDU" EntitySet="SDU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_OpportunityID" Association="Self.FK_Project_OpportunityID">
+      <End Role="Opportunity" EntitySet="Opportunity" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_SowStatusID" Association="Self.FK_Project_SowStatusID">
+      <End Role="SOWStatus" EntitySet="SOWStatus" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectActualByDUHOpportunityID" Association="Self.FK_ProjectActualByDUHOpportunityID">
+      <End Role="Opportunity" EntitySet="Opportunity" />
+      <End Role="ProjectActualByDUH" EntitySet="ProjectActualByDUH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectForecastByDUHOpportunityID" Association="Self.FK_ProjectForecastByDUHOpportunityID">
+      <End Role="Opportunity" EntitySet="Opportunity" />
+      <End Role="ProjectForecastByDUH" EntitySet="ProjectForecastByDUH" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QuaterID" Association="Self.fk_QuaterID">
+      <End Role="Quater" EntitySet="Quater" />
+      <End Role="ProjectActualByDUH" EntitySet="ProjectActualByDUH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SDUIDFORDU" Association="Self.FK_SDUIDFORDU">
+      <End Role="SDU" EntitySet="SDU" />
+      <End Role="DU" EntitySet="DU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_RoleID" Association="Self.FK_User_RoleID">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="frk_QuaterID" Association="Self.frk_QuaterID">
+      <End Role="Quater" EntitySet="Quater" />
+      <End Role="ProjectForecastByDUH" EntitySet="ProjectForecastByDUH" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,14 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>AccessDenied</h2>
+
+<div class="jumbotron" style="background-color:#fff; margin:0px!important; padding:40px 0px 0px 0px; ">
+    <div class="container text-center">
+        <img src="~/Content/Images/access-denied.jpg" />
+        <br /><span><button type="button" id="filterButton" onclick="location.href='@Url.Action("Index","Login")'" name="Search" class="btn btn-primary">Back to Login Page</button></span><br /><br />
+
+    </div>
+</div>

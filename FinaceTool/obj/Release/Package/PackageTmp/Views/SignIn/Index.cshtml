@@ -1,0 +1,125 @@
+﻿
+
+<!DOCTYPE html>
+@model FinaceTool.Models.LoginModel
+@{
+    Layout = null;
+}
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Finance Tool  - Login</title>
+    <!-- Custom fonts for this template-->
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template-->
+    <link href="~/Content/css/sb-admin.css" rel="stylesheet">
+
+
+    <style>
+        /* all */
+        ::-webkit-input-placeholder {
+            color: grey;
+        }
+
+        ::-moz-placeholder {
+            color: grey;
+        }
+        /* firefox 19+ */
+        :-ms-input-placeholder {
+            color: grey;
+        }
+        /* ie */
+        input:-moz-placeholder {
+            color: grey;
+        }
+    </style>
+</head>
+@using (Html.BeginForm("Index", "SignIn", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <body class="bg-dark">
+        <div class="container">
+            <div class="card card-login mx-auto mt-5">
+                <div class="card-header">Login</div>
+                <div class="card-body">
+                    
+                        <div class="form-group">
+                            <div class="form-label-group">
+                                <label for="User">Username</label>
+                                @Html.TextBoxFor(model => model.Username, "User", new { @class = "form-control", placeholder = "username" })
+
+                                @Html.ValidationMessageFor(model => model.Username)
+                                @*<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">*@
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-label-group">
+                                <label for="User">Password</label>
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Password)
+                                @*<input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+        <label for="inputPassword">Password</label>*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="remember-me">
+                                    Remember Password
+                                </label>
+                            </div>
+                        </div>
+                        @*<a class="btn btn-primary btn-block" href="index.html">Login</a>*@
+                        <button class="btn btn-primary btn-block" onclick="return LoginValidation();" type="submit" id="filterButton" name="Search">Sign In </button>
+                   
+                    <div class="text-center">
+                        @*<a class="d-block small mt-3" href="register.html">Register an Account</a>
+                        <a class="d-block small" onclick="return ForgetPassword();" >Forgot Password?</a>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript-->
+        <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+    </body>
+}
+</html>
+
+<script>
+    function LoginValidation() {
+        if ($("#Username").val() == "") {
+            alert("Please enter the Sap Id");
+            return false;
+        }
+        if ($("#Password").val() == "") {
+            alert("Please enter the password");
+            return false;
+        }
+    }
+
+    function ForgetPassword() {
+        if ($("#Username").val() == "") {
+            alert("Please enter the Sap Id");
+            return false;
+        }
+        $.ajax({
+            url: "/Login/ForgetPassword",
+            type: "get",
+            data: "Username=" + $("#Username").val(),
+            async: false,
+            success: function (data) {
+                alert(data);
+            }
+        });
+    }
+</script>

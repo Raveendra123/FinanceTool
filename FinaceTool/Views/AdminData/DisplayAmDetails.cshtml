@@ -1,0 +1,163 @@
+﻿@{
+    // Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+
+@model IEnumerable<FinaceTool.Models.AdminMainDetailsResult>
+
+<p>
+    @Html.ActionLink("Create New Opportunity", "CreateAdmin", null, new { @style = "font-weight:bold;" })
+</p>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Opportunity Tracking
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Edit/Delete</th>
+                        @*<th>@Html.DisplayNameFor(model => model.S_No)</th>*@
+                        <th>Customer Name</th>
+                        <th>AM Name</th>
+                        <th>LOB Name</th>
+                        <th>DU Name</th>
+                        <th>DBBLDU Name</th>
+                        <th>Opportunity Id</th>
+                        <th>Opportunity Name</th>
+                        <th>Project Id</th>
+                        <th>Program Name</th>
+                        <th>Service Line</th>
+                        <th>Product Group</th>
+                        <th>TCV ($K)</th>
+                        <th>ACV ($K)</th>
+                        <th>SOW Status</th>
+                        <th>SOW Value ($K)</th>
+                        <th>Deal Stage</th>
+                        <th>Billing Startdate</th>
+                        <th>Note</th>
+                        @foreach (var items in Model)
+                        {
+                            if (items.QuaterName != null)
+                            {
+                                for (var i = 0; i < items.QuaterName.Count; i++)
+                                {
+                                    <th>@Html.DisplayFor(item => items.QuaterName[i]).ToString()</th>
+                                }
+                            }
+                        }
+                    </tr>
+                </thead>
+                @*<tfoot>
+                    <tr>
+                        <th>Edit/Delete</th>
+                       
+                        <th>CustomerName</th>
+                        <th>AMName</th>
+                        <th>LOBName</th>
+                        <th>DUName</th>
+                        <th>DBBLDUName</th>
+                        <th>OpportunityId</th>
+                        <th>OpportunityName</th>
+                        <th>ProjectId</th>
+                        <th>ProgramName</th>
+                        <th>ServiceLine</th>
+                        <th>ProductGroup</th>
+                        <th>TCV($K)</th>
+                        <th>ACV($K)</th>
+                        <th>SowStatus</th>
+                        <th>SowValue($K)</th>
+                        <th>Dealstage</th>
+                        <th>BillingStartdate</th>
+                        <th>Note</th>
+                        @foreach (var items in Model)
+                        {
+                            if (items.QuaterName != null)
+                            {
+                                for (var i = 0; i < items.QuaterName.Count; i++)
+                                {
+                                    <th>@Html.DisplayFor(item => items.QuaterName[i]).ToString()</th>
+                                }
+                            }
+                        }
+                    </tr>
+                </tfoot>*@
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td >@Html.ActionLink("Edit", "Edit", new { OpportunityID = item.OpportunityID, CustomerID = item.CustomerID, AMID = item.AMID, LOBID = item.OpportunityLobId, DUID = item.DUID, ServiceLineID = item.ServiceLineID }) | @Html.ActionLink("Delete", "DeleteAMGridById", new FinaceTool.Models.AMModel { OpportunityID = item.OpportunityKeyID.ToString() })</td>
+                        @*<td >@Html.DisplayFor(modelItem => item.S_No)</td>*@
+                        <td>@Html.DisplayFor(modelItem => item.Customername)</td>
+                        <td >@Html.DisplayFor(modelItem => item.AMName)</td>
+                        <td >@Html.DisplayFor(modelItem => item.OpportunityLobName)</td>
+                        <td >@Html.DisplayFor(modelItem => item.DUName)</td>
+                        <td >@Html.DisplayFor(modelItem => item.DBBLDU)</td>
+                        <td >@Html.DisplayFor(modelItem => item.OpportunityID)</td>
+                        <td >@Html.DisplayFor(modelItem => item.OpportunityName)</td>
+                        <td >@Html.DisplayFor(modelItem => item.ProjectID)</td>
+                        <td >@Html.DisplayFor(modelItem => item.ProgramName)</td>
+                        <td >@Html.DisplayFor(modelItem => item.ServiceLine)</td>
+                        <td >@Html.DisplayFor(modelItem => item.ProductGroup)</td>
+                        <td >@Html.DisplayFor(modelItem => item.TCV)</td>
+                        <td >@Html.DisplayFor(modelItem => item.acv)</td>
+                        <td >@Html.DisplayFor(modelItem => item.sowvalue)</td>
+                        <td >@Html.DisplayFor(modelItem => item.SowStatusValue)</td>
+                        <td >@Html.DisplayFor(modelItem => item.DealStagestatus)</td>    
+                        <td >@Html.DisplayFor(modelItem => item.BillingStratDate)</td>
+                        <td >@Html.DisplayFor(modelItem => item.note)</td>
+                        @{
+                            int cnt = 1;
+                            foreach (var QuarterItem in item.Quaterlist)
+                            {
+
+                                <td class="Grandtotal_@cnt">@Html.DisplayFor(modelitems => QuarterItem)</td>
+                                @*<td class="Subtotal_@cnt">@Html.DisplayFor(modelitems => QuarterItem)</td>*@
+                                cnt = cnt + 1;
+                            }
+                        }
+                        
+
+
+                        @*@foreach (var items in Model)
+        {
+            if (items.Quaterlist != null)
+            {
+                for (var i = 0; i < items.Quaterlist.Count; i++)
+                {
+                    <td>
+                        <label class="control-label col-md-12">@Html.DisplayFor(item => items.Quaterlist[i]).ToString().Substring(0, 8)</label>
+                    </td>
+                }
+            }
+        }*@
+
+                        @*<td>
+            @Html.DisplayFor(modelItem => item.AMJ19)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JAS19)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OND19)
+        </td>*@
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @{
+        if (TempData["message"] != null)
+        {
+            <script type="text/javascript">
+        alert(@Html.Raw(Json.Encode(TempData["message"])));
+            </script>
+        }
+    }
+</div>

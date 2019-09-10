@@ -1,0 +1,353 @@
+﻿@model FinaceTool.Models.CompareDUHModel
+@{
+    /**/
+
+    /**/
+
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.0.js"></script>
+<link href="~/Scripts/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
+@using (Html.BeginForm("Index", "Comparison", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card mb-3">
+        @*<div class="card-header">
+                <i class="fas fa-table"></i>
+                Compare
+            </div>*@
+        <div class="card-body">
+            <table>
+                <tr>
+
+                    <td>
+                        @Html.Label("SDU", htmlAttributes: new { @class = "control-label col-md-12" })
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(m => m.DUHModel.SDUID, Model.DUHModel.SDUList, "Please Select SDU", new { @class = "form -control", onchange = "getDUList();" })
+                        @*@Html.ValidationMessageFor(model => model.DUHModel.SDUID, "", new { @class = "text-danger" })*@
+                    </td>
+                    <td>
+                        @Html.Label("DU", htmlAttributes: new { @class = "control-label col-md-12" })
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(m => m.DUHModel.DUID, Model.DUHModel.DUList, "Please Select DU", new { @class = "form -control" })
+
+                        @*@Html.ValidationMessageFor(model => model.DUHModel.DUID, "", new { @class = "text-danger" })*@
+                    </td>
+                    <td>
+                        @Html.Label("Project", htmlAttributes: new { @class = "control-label col-md-12" })
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(m => m.DUHModel.ProjectID, Model.DUHModel.ProjectList, "Please Select Project", new { @class = "form -control" })
+
+                        @*@Html.ValidationMessageFor(model => model.DUHModel.DUID, "", new { @class = "text-danger" })*@
+                    </td>
+                    <td>  @Html.Label("Date", htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.EditorFor(model => model.DUHModel.CompareDate, "CompareDate", new { htmlAttributes = new { @class = "datepicker form-control" } })
+                        @*@Html.ValidationMessageFor(model => model.DUHModel.CompareDate, "", new { @class = "text-danger" })*@
+                    </td>
+                    <td>
+                        <div class="form-group">
+
+                            <div class="col-md-offset-2 col-md-12">
+                                <input type="submit" value="Submit" id="btnclick" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Current Revenue
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+
+                            <th>Customer Name</th>
+                            <th>AM Name</th>
+                            @*<th>@Html.DisplayNameFor(model => model.LOBName)</th>*@
+                            <th>DU Name</th>
+                            <th>Opportunity ID</th>
+                            @*<th>@Html.DisplayNameFor(model => model.DBBLDU)</th>*@
+                            @*<th>@Html.DisplayNameFor(model => model.ProjectID)</th>*@
+                            <th>Project Name</th>
+                            @*<th>@Html.DisplayNameFor(model => model.ProgramName)</th>
+        <th>@Html.DisplayNameFor(model => model.ServiceLine)</th>
+        <th>@Html.DisplayNameFor(model => model.ProductGroup)</th>
+        <th>@Html.DisplayNameFor(model => model.SowStatus)</th>
+        <th>@Html.DisplayNameFor(model => model.poavilable)</th>
+        <th>@Html.DisplayNameFor(model => model.pobalance)</th>*@
+
+                            @foreach (var items in Model.DUHMainDetailsResult)
+                            {
+                                if (items.QuaterName != null)
+                                {
+                                    for (var i = 0; i < items.QuaterName.Count; i++)
+                                    {
+                                        <th>@Html.DisplayFor(item => items.QuaterName[i]).ToString()</th>
+                                    }
+                                }
+                            }
+
+                            @*@for (int i = 0; i < Model.DUHMainDetailsResult.Count(); i++)
+        {
+
+            if (Model.DUHMainDetailsResult[i].QuaterName != null)
+            {
+                for (var j = 0; i < Model.DUHMainDetailsResult[i].QuaterName.Count; i++)
+                {
+                    <th>@Html.DisplayFor(item => Model.DUHMainDetailsResult[i].QuaterName[j]).ToString()</th>
+                }
+            }
+        }*@
+                        </tr>
+                    </thead>
+                    @*<tfoot>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>AM Name</th>                            
+                            <th>DU Name</th>
+                            <th>Opportunity ID</th>                          
+                            <th>Project Name</th>                          
+                            @foreach (var items in Model.DUHMainDetailsResult)
+                            {
+                                if (items.QuaterName != null)
+                                {
+                                    for (var i = 0; i < items.QuaterName.Count; i++)
+                                    {
+                                        <th>@Html.DisplayFor(item => items.QuaterName[i]).ToString()</th>
+                                    }
+                                }
+                            }
+                        </tr>
+                    </tfoot>*@
+                    <tbody>
+
+                        @foreach (var item in Model.DUHMainDetailsResult)
+                        {
+                        <tr>
+
+                            <td>@Html.DisplayFor(modelItem => item.Customername)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AMName)</td>
+                            @*<td>@Html.DisplayFor(modelItem => item.OpportunityLobName)</td>*@
+                            <td>@Html.DisplayFor(modelItem => item.DUName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.OpportunityID)</td>
+                            @*<td>@Html.DisplayFor(modelItem => item.DBBLDU)</td>
+        <td>@Html.DisplayFor(modelItem => item.ProjectID)</td>*@
+                            <td>@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                            @*<td>@Html.DisplayFor(modelItem => item.ProgramName)</td>
+        <td>@Html.DisplayFor(modelItem => item.ServiceLine)</td>
+        <td>@Html.DisplayFor(modelItem => item.ProductGroup)</td>
+        <td>@Html.DisplayFor(modelItem => item.SowStatus)</td>
+        <td>@Html.DisplayFor(modelItem => item.poavilable)</td>
+        <td>@Html.DisplayFor(modelItem => item.pobalance)</td>*@
+                            @{
+                                int cnt = 1;
+                                foreach (var QuarterItem in item.Quaterlist)
+                                {
+
+                                    <td class="Grandtotal_@cnt">@Html.DisplayFor(modelitems => QuarterItem)</td>
+                                    @*<td class="Subtotal_@cnt">@Html.DisplayFor(modelitems => QuarterItem)</td>*@
+                                    cnt = cnt + 1;
+                                }
+                            }
+
+
+                        </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Previous Revenue
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+
+                            <th>Customer Name</th>
+                            <th>AM Name</th>
+                            @*<th>@Html.DisplayNameFor(model => model.LOBName)</th>*@
+                            <th>DU Name</th>
+                            <th>Opportunity ID</th>
+                            @*<th>@Html.DisplayNameFor(model => model.DBBLDU)</th>*@
+                            @*<th>@Html.DisplayNameFor(model => model.ProjectID)</th>*@
+                            <th>Project Name</th>
+                            @*<th>@Html.DisplayNameFor(model => model.ProgramName)</th>
+        <th>@Html.DisplayNameFor(model => model.ServiceLine)</th>
+        <th>@Html.DisplayNameFor(model => model.ProductGroup)</th>
+        <th>@Html.DisplayNameFor(model => model.SowStatus)</th>
+        <th>@Html.DisplayNameFor(model => model.poavilable)</th>
+        <th>@Html.DisplayNameFor(model => model.pobalance)</th>*@
+
+                            @foreach (var items in Model.OldDUHMainDetailsResult)
+                            {
+                                if (items.QuaterName != null)
+                                {
+                                    for (var i = 0; i < items.QuaterName.Count; i++)
+                                    {
+                                        <th>@Html.DisplayFor(item => items.QuaterName[i]).ToString()</th>
+                                    }
+                                }
+                            }
+
+                            @*@for (int i = 0; i < Model.DUHMainDetailsResult.Count(); i++)
+        {
+
+            if (Model.DUHMainDetailsResult[i].QuaterName != null)
+            {
+                for (var j = 0; i < Model.DUHMainDetailsResult[i].QuaterName.Count; i++)
+                {
+                    <th>@Html.DisplayFor(item => Model.DUHMainDetailsResult[i].QuaterName[j]).ToString()</th>
+                }
+            }
+        }*@
+                        </tr>
+                    </thead>
+                    @*<tfoot>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>AM Name</th>
+                            
+                            <th>DU Name</th>
+                            <th>Opportunity ID</th>
+                            
+                            <th>Project Name</th>
+                           
+                            @foreach (var items in Model.OldDUHMainDetailsResult)
+                            {
+                                if (items.QuaterName != null)
+                                {
+                                    for (var i = 0; i < items.QuaterName.Count; i++)
+                                    {
+                                        <th>@Html.DisplayFor(item => items.QuaterName[i]).ToString()</th>
+                                    }
+                                }
+                            }
+                        </tr>
+                    </tfoot>*@
+                    <tbody>
+
+                        @foreach (var item in Model.OldDUHMainDetailsResult)
+                        {
+                        <tr>
+
+                            <td>@Html.DisplayFor(modelItem => item.Customername)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AMName)</td>
+                            @*<td>@Html.DisplayFor(modelItem => item.OpportunityLobName)</td>*@
+                            <td>@Html.DisplayFor(modelItem => item.DUName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.OpportunityID)</td>
+                            @*<td>@Html.DisplayFor(modelItem => item.DBBLDU)</td>
+        <td>@Html.DisplayFor(modelItem => item.ProjectID)</td>*@
+                            <td>@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                            @*<td>@Html.DisplayFor(modelItem => item.ProgramName)</td>
+        <td>@Html.DisplayFor(modelItem => item.ServiceLine)</td>
+        <td>@Html.DisplayFor(modelItem => item.ProductGroup)</td>
+        <td>@Html.DisplayFor(modelItem => item.SowStatus)</td>
+        <td>@Html.DisplayFor(modelItem => item.poavilable)</td>
+        <td>@Html.DisplayFor(modelItem => item.pobalance)</td>*@
+                            @{
+                                int cnt = 1;
+                                foreach (var QuarterItem in item.Quaterlist)
+                                {
+
+                                    <td class="Grandtotal_@cnt">@Html.DisplayFor(modelitems => QuarterItem)</td>
+                                    @*<td class="Subtotal_@cnt">@Html.DisplayFor(modelitems => QuarterItem)</td>*@
+                                    cnt = cnt + 1;
+                                }
+                            }
+
+                        </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    function getDUList() {
+        
+
+        var SDUID = $("#DUHModel_SDUID option:selected").val();
+        $.ajax
+            ({
+                url: '/Comparison/GetDUList',
+                type: 'POST',
+                datatype: 'application/json',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    SDUID: +SDUID
+                }),
+                success: function (result) {
+
+                    $("#DUHModel_DUID").html("");
+                    //$("#DUHModel_DUID").append('<option value="0">ALL</option>');
+                    //$.each(result, function (index, optiondata) {
+                    //    $("#DUDropDown").append("<option value='" + optiondata.DUID + "'>" + optiondata.DUName + "</option>");
+                    $.each($.parseJSON(result), function (i, du) {
+                        $("#DUHModel_DUID").append($('<option></option>').val(du.Value).html(du.Text))
+                    })
+
+                },
+                error: function () {
+                    alert("Whooaaa! Something went wrong..")
+                },
+            });
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        // Datepicker Popups calender to Choose date.
+        $(function () {
+
+            $("#DUHModel_CompareDate").datepicker();
+            
+            if ($("#DUHModel_CompareDate").val() == "1/1/0001 12:00:00 AM") {
+
+                $("#DUHModel_CompareDate").datepicker("setDate", new Date());
+            }
+
+
+
+            // Pass the user selected date format.
+            //$("#format").change(function () {
+            //    $("#BillingStratDate").datepicker("option", "dateFormat", $(this).val());
+            //});
+        });
+    });
+</script>
+@*<script>
+         $("#btnclick").click(function () {
+
+             $.get('@Url.Action("_ComparisonPartialPage", "Comparison")', function (data) {
+                 console.log(data);
+                $('#divtest').replaceWith(data);
+                });
+                alert(data);
+
+                });
+    </script>*@

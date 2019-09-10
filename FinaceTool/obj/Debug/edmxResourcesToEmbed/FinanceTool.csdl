@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinanceToolModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DealStage">
+    <Key>
+      <PropertyRef Name="DealStageID" />
+    </Key>
+    <Property Name="DealStageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DealStage1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="probability" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DU">
+    <Key>
+      <PropertyRef Name="DUID" />
+    </Key>
+    <Property Name="DUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AMID" Type="Int32" Nullable="false" />
+    <Property Name="DUName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SDUID" Type="Int32" Nullable="false" />
+    <Property Name="DUHeadID" Type="Int32" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="LOB">
+    <Key>
+      <PropertyRef Name="LOBID" />
+    </Key>
+    <Property Name="LOBID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LOBName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Opportunity">
+    <Key>
+      <PropertyRef Name="OpportunityID" />
+    </Key>
+    <Property Name="OpportunityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OpportunityName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DealStageID" Type="Int32" Nullable="false" />
+    <Property Name="SowStatusID" Type="Int32" Nullable="false" />
+    <Property Name="AMID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ProgramName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ServiceLineID" Type="Int32" Nullable="false" />
+    <Property Name="ProductGroupID" Type="Int32" Nullable="false" />
+    <Property Name="DBBLDUID" Type="Int32" Nullable="false" />
+    <Property Name="TCV" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="acv" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="sowvalue" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="BillingStratDate" Type="DateTime" Precision="0" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="SalesForceCastID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OpportunityForecastBySale" Relationship="Self.FK__Opportuni__Sales__6C190EBB" FromRole="Opportunity" ToRole="OpportunityForecastBySales" />
+  </EntityType>
+  <EntityType Name="OpportunityForecastBySale">
+    <Key>
+      <PropertyRef Name="SalesForceCastID" />
+    </Key>
+    <Property Name="SalesForceCastID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuaterID" Type="Int32" Nullable="false" />
+    <Property Name="forecastvaluebysales" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Opportunities" Relationship="Self.FK__Opportuni__Sales__6C190EBB" FromRole="OpportunityForecastBySales" ToRole="Opportunity" />
+    <NavigationProperty Name="Quater" Relationship="Self.FK__Opportuni__Quate__6B24EA82" FromRole="OpportunityForecastBySales" ToRole="Quater" />
+  </EntityType>
+  <EntityType Name="OpportunityForecastBySales2">
+    <Key>
+      <PropertyRef Name="SalesForceCastID" />
+    </Key>
+    <Property Name="SalesForceCastID" Type="Int32" Nullable="false" />
+    <Property Name="QuaterID" Type="Int32" Nullable="false" />
+    <Property Name="forecastvaluebysales" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProductGroup">
+    <Key>
+      <PropertyRef Name="ProductGroupID" />
+    </Key>
+    <Property Name="ProductGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductGroupName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OpportunityID" Type="Int32" Nullable="false" />
+    <Property Name="SowStatusID" Type="Int32" Nullable="false" />
+    <Property Name="poavilable" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="pobalance" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProjectActualByDUH">
+    <Key>
+      <PropertyRef Name="duhactualid" />
+    </Key>
+    <Property Name="duhactualid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OpportunityID" Type="Int32" Nullable="false" />
+    <Property Name="QuaterName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="actualvaluebyduh" Type="Int32" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProjectForecastByDUH">
+    <Key>
+      <PropertyRef Name="DUhforecastid" />
+    </Key>
+    <Property Name="DUhforecastid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OpportunityID" Type="Int32" Nullable="false" />
+    <Property Name="QuaterName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="forecastvaluebyduh" Type="Int32" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Quater">
+    <Key>
+      <PropertyRef Name="QuaterID" />
+    </Key>
+    <Property Name="QuaterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StratDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="QuaterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuaterNumber" Type="Int32" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OpportunityForecastBySales" Relationship="Self.FK__Opportuni__Quate__6B24EA82" FromRole="Quater" ToRole="OpportunityForecastBySales" />
+  </EntityType>
+  <EntityType Name="Quater1">
+    <Key>
+      <PropertyRef Name="QuaterID" />
+    </Key>
+    <Property Name="QuaterID" Type="Int32" Nullable="false" />
+    <Property Name="StratDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="QuaterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuaterNumber" Type="Int32" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SDU">
+    <Key>
+      <PropertyRef Name="SDUID" />
+    </Key>
+    <Property Name="SDUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SDUName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LOBID" Type="Int32" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ServiceLine">
+    <Key>
+      <PropertyRef Name="ServiceLineID" />
+    </Key>
+    <Property Name="ServiceLineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceLineName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SOWStatu">
+    <Key>
+      <PropertyRef Name="SOWStatusID" />
+    </Key>
+    <Property Name="SOWStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SOWStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="ISActive" Type="Boolean" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserAccess">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="LOBID" Type="Int32" Nullable="false" />
+    <Property Name="SDUID" Type="Int32" Nullable="false" />
+    <Property Name="DUID" Type="Int32" Nullable="false" />
+    <Property Name="startdate" Type="DateTime" Precision="0" />
+    <Property Name="Enddate" Type="DateTime" Precision="0" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK__Opportuni__Sales__6C190EBB">
+    <End Role="OpportunityForecastBySales" Type="Self.OpportunityForecastBySale" Multiplicity="1" />
+    <End Role="Opportunity" Type="Self.Opportunity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OpportunityForecastBySales">
+        <PropertyRef Name="SalesForceCastID" />
+      </Principal>
+      <Dependent Role="Opportunity">
+        <PropertyRef Name="SalesForceCastID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Opportuni__Quate__6B24EA82">
+    <End Role="Quater" Type="Self.Quater" Multiplicity="1" />
+    <End Role="OpportunityForecastBySales" Type="Self.OpportunityForecastBySale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quater">
+        <PropertyRef Name="QuaterID" />
+      </Principal>
+      <Dependent Role="OpportunityForecastBySales">
+        <PropertyRef Name="QuaterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinanceToolEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="DealStages" EntityType="Self.DealStage" />
+    <EntitySet Name="DUs" EntityType="Self.DU" />
+    <EntitySet Name="LOBs" EntityType="Self.LOB" />
+    <EntitySet Name="Opportunities" EntityType="Self.Opportunity" />
+    <EntitySet Name="OpportunityForecastBySales" EntityType="Self.OpportunityForecastBySale" />
+    <EntitySet Name="OpportunityForecastBySales2" EntityType="Self.OpportunityForecastBySales2" />
+    <EntitySet Name="ProductGroups" EntityType="Self.ProductGroup" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="ProjectActualByDUHs" EntityType="Self.ProjectActualByDUH" />
+    <EntitySet Name="ProjectForecastByDUHs" EntityType="Self.ProjectForecastByDUH" />
+    <EntitySet Name="Quaters" EntityType="Self.Quater" />
+    <EntitySet Name="Quater1" EntityType="Self.Quater1" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="SDUs" EntityType="Self.SDU" />
+    <EntitySet Name="ServiceLines" EntityType="Self.ServiceLine" />
+    <EntitySet Name="SOWStatus" EntityType="Self.SOWStatu" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserAccesses" EntityType="Self.UserAccess" />
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+    <AssociationSet Name="FK__Opportuni__Sales__6C190EBB" Association="Self.FK__Opportuni__Sales__6C190EBB">
+      <End Role="OpportunityForecastBySales" EntitySet="OpportunityForecastBySales" />
+      <End Role="Opportunity" EntitySet="Opportunities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Opportuni__Quate__6B24EA82" Association="Self.FK__Opportuni__Quate__6B24EA82">
+      <End Role="Quater" EntitySet="Quaters" />
+      <End Role="OpportunityForecastBySales" EntitySet="OpportunityForecastBySales" />
+    </AssociationSet>
+    <FunctionImport Name="AMTable" ReturnType="Collection(FinanceToolModel1.AMTable_Result)" />
+    <FunctionImport Name="Usp_GetDUMasterDetails" ReturnType="Collection(FinanceToolModel1.Usp_GetDUMasterDetails_Result)" />
+    <FunctionImport Name="Usp_GetProjectMasterDetails" ReturnType="Collection(FinanceToolModel1.Usp_GetProjectMasterDetails_Result)" />
+    <FunctionImport Name="Usp_GetSDUMasterDetails" ReturnType="Collection(FinanceToolModel1.Usp_GetSDUMasterDetails_Result)" />
+  </EntityContainer>
+  <ComplexType Name="AMTable_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Decimal" Name="TCV" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="acv" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="sowvalue" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="DealStage" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="BillingStratDate" Nullable="true" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QuaterName" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="forecastvaluebysales" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUMasterDetails_Result">
+    <Property Type="Int32" Name="DUID" Nullable="false" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="SDUName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DUHeadID" Nullable="false" />
+    <Property Type="String" Name="Createdby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="Createddate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Modifiedby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetProjectMasterDetails_Result">
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="SowStatusID" Nullable="false" />
+    <Property Type="String" Name="SOWStatus" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Createdby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="Createddate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Modifiedby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetSDUMasterDetails_Result">
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="SDUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Createdby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="Createddate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Modifiedby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

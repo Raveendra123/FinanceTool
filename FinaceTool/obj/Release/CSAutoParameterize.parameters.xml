@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="FinanceToolEntities-Web.config Connection String" description="FinanceToolEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/FinanceToolModel.csdl|res://*/FinanceToolModel.ssdl|res://*/FinanceToolModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=dictionaryappbot.database.windows.net;initial catalog=FinanceTool;user id=dictionaryapp;password=India@1234;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\ajay\\28_08_Financetool\\FinaceTool\\FinaceTool\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='FinanceToolEntities']/@connectionString" />
+  </parameter>
+</parameters>

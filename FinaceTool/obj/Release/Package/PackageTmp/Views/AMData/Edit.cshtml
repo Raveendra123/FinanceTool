@@ -1,0 +1,198 @@
+﻿@model FinaceTool.Models.AMModel
+
+@{
+    /**/
+
+    ViewBag.Title = "Edit";
+    //  Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="~/Scripts/BusinessJs/AMEditjs.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.0.js"></script>
+<link href="~/Scripts/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
+<link href="~/Content/tablestyle.css" rel="stylesheet" />
+
+<div style="margin-top:20px;margin-left:20px;">
+    @Html.ActionLink("Back to List", "ViewOpportunities", "AMData", null, new { @style = "font-weight:bold;margin-left:40px;" })
+</div>
+
+
+@using (Html.BeginForm("UpdateOpportunity", "AMData", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.IsUpdated)
+    <div style="padding-left:190px;height:400px;">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" colspan="4">Update The Opportunity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.LabelFor(model => model.S_No, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.EditorFor(model => model.S_No, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.S_No, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.Customername, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.CustomerId, Model.CustomerList, "Please Select Customer Name", new { @class = "form-control" })
+                        @Html.HiddenFor(model => model.Customername)
+                        @Html.Hidden("hdncustomername", "")
+                        @Html.HiddenFor(model => model.OpportunityID)
+                    </td>
+                </tr>
+                <tr>
+                    <td>   @Html.LabelFor(model => model.AMName, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.AMId, Model.AmUserList, "Please Select AM Name", new { @class = "form-control" })
+                        @Html.HiddenFor(model => model.AMName)
+                        @Html.Hidden("hdnAMName", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.LOBName, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.LobId, Model.lobList, "Please Select Lob Name", new { @class = "form-control" })
+                        @Html.HiddenFor(model => model.LOBName)
+                        @Html.Hidden("hdnLOBName", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.DUName, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.DuId, Model.duList, "Please Select Du Name", new { @class = "form-control" })
+                        @Html.HiddenFor(model => model.DUName)
+                        @Html.Hidden("hdnDUName", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td>   @Html.LabelFor(model => model.DBBLDU, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.DBBLDuId, Model.duList, "If Need Please Select", new { @class = "form-control" })
+                        @Html.HiddenFor(model => model.DBBLDU)
+                        @Html.Hidden("hdnDBBLDU", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td>  @Html.LabelFor(model => model.OpportunityName, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>@Html.EditorFor(model => model.OpportunityName, new { htmlAttributes = new { @class = "form-control" } })</td>
+                </tr>
+                <tr>
+                    <td>  @Html.LabelFor(model => model.ProjectName, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.ProjectIdForEdit, Model.ProjectList, "Please Select Project Name", new { @class = "form-control", @disabled = "disabled" })
+                        @Html.HiddenFor(model => model.ProjectName)
+                        @Html.Hidden("hdnProjectName", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.ProgramName, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td> @Html.EditorFor(model => model.ProgramName, new { htmlAttributes = new { @class = "form-control" } })</td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.ServiceLine, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.ServiceLineId, Model.serviceList, "Please Select ServiceLine Name", new { @class = "form-control" })
+                        @Html.HiddenFor(model => model.ServiceLine)
+                        @Html.Hidden("hdnServiceLine", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.ProductGroup, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.ProductGroupId, Model.ProductGroupList, "Please Select ProductGroup Name", new { @class = "form-control" })
+                        @Html.HiddenFor(model => model.ProductGroup)
+                        @Html.Hidden("hdnProductGroup", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td>  @Html.LabelFor(model => model.TCV, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>@Html.EditorFor(model => model.TCV, new { htmlAttributes = new { @class = "form-control", @type = "number", @step = ".01" } })</td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.acv, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td> @Html.EditorFor(model => model.acv, new { htmlAttributes = new { @class = "form-control", @type = "number", @step = ".01" } })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.sowvalue, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.sowvalue, Model.SowStatusList, "Please Select Sow Status Name", new { @class = "form-control" })
+                        @Html.Hidden("hdnSowStatus", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.SowStatusValue, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.EditorFor(m => m.SowStatusValue, new { htmlAttributes = new { @class = "form-control", @type = "number", @step = ".01" } })
+                        @Html.Hidden("hdnSowStatus", "")
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(model => model.DealStage, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.DealStageId, Model.DealStageList, "Please Select DealStage Name", new { @class = "form-control" })
+                        @Html.HiddenFor(model => model.DealStage)
+                        @Html.Hidden("hdnDealStage", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.OpportunityCategory, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.OpportunityCategory, Model.OpportunityCategoryList, "Please Select Opportunity Category", new { @class = "form-control" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.BillingStratDate, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td> @Html.EditorFor(model => model.BillingStratDate, "BillingStratDate", new { htmlAttributes = new { @class = "datepicker form-control" } })</td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.Note_Comment, htmlAttributes: new { @class = "control-label col-md-12" })</td>
+                    <td> @Html.EditorFor(model => model.Note_Comment, new { htmlAttributes = new { @class = "form-control" } })</td>
+                </tr>
+                @if (Model.Quaterlist != null)
+                {
+                    for (var i = 0; i < Model.Quaterlist.Count; i++)
+                    {
+
+                        <tr>
+                            <td>
+                                <label class="control-label col-md-12">@Html.DisplayFor(item => Model.Quaterlist[i].QuaterName).ToString().Substring(0, 12)</label>
+                            </td>
+                            <td>
+                                @Html.TextBox(Model.Quaterlist[i].QuaterName.Substring(0, 8), Model.Quaterlist[i].QuaterName.ToString().Split(':').GetValue(1), new { @class = "form-control", @type = "number", @step = ".01" })
+                            </td>
+                        </tr>
+                    }
+                }
+                <tr>
+                    <td colspan="12" style="text-align:center">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+}
+
+<script>
+    $(document).ready(function () {
+        // Datepicker Popups calender to Choose date.
+        $(function () {
+            $("#BillingStratDate").datepicker();
+            // Pass the user selected date format.
+            //$("#format").change(function () {
+            //    $("#BillingStratDate").datepicker("option", "dateFormat", $(this).val());
+            //});
+        });
+    });
+</script>

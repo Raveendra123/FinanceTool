@@ -1,0 +1,1922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinanceToolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DealStage">
+    <Key>
+      <PropertyRef Name="DealStageID" />
+    </Key>
+    <Property Name="DealStageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DealStage1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="probability" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DU">
+    <Key>
+      <PropertyRef Name="DUID" />
+    </Key>
+    <Property Name="DUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AMID" Type="Int32" Nullable="false" />
+    <Property Name="DUName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SDUID" Type="Int32" Nullable="false" />
+    <Property Name="DUHeadID" Type="Int32" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="User" Relationship="Self.FK_DUHeadID" FromRole="DU" ToRole="User" />
+    <NavigationProperty Name="SDU" Relationship="Self.FK_SDUIDFORDU" FromRole="DU" ToRole="SDU" />
+  </EntityType>
+  <EntityType Name="DUHTestTable">
+    <Key>
+      <PropertyRef Name="S_No" />
+    </Key>
+    <Property Name="S_No" Type="Int64" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AMName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LOBName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DUName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DBBLDU" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OpportunityID" Type="Int32" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="ProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ProgramName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceLine" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ProductGroup" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="sowvalue" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="poavailable" Type="Boolean" />
+    <Property Name="pobalance" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AMJ19_FC" Type="Int32" />
+    <Property Name="AMJ19_Act" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LOB">
+    <Key>
+      <PropertyRef Name="LOBID" />
+    </Key>
+    <Property Name="LOBID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LOBName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Opportunities" Relationship="Self.FK__Opportuni__LobId__0E6E26BF" FromRole="LOB" ToRole="Opportunity" />
+    <NavigationProperty Name="SDUs" Relationship="Self.FK_LOBID" FromRole="LOB" ToRole="SDU" />
+  </EntityType>
+  <EntityType Name="Opportunity">
+    <Key>
+      <PropertyRef Name="OpportunityID" />
+    </Key>
+    <Property Name="OpportunityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OpportunityName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DealStageID" Type="Int32" Nullable="false" />
+    <Property Name="SowStatusID" Type="Int32" Nullable="false" />
+    <Property Name="AMID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ProgramName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ServiceLineID" Type="Int32" Nullable="false" />
+    <Property Name="ProductGroupID" Type="Int32" Nullable="false" />
+    <Property Name="DBBLDUID" Type="Int32" Nullable="false" />
+    <Property Name="TCV" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="acv" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="sowvalue" Type="Int32" />
+    <Property Name="BillingStratDate" Type="DateTime" Precision="0" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="SalesForceCastID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="SalesForceGuid" Type="Int64" />
+    <Property Name="DUID" Type="Int32" />
+    <Property Name="LobId" Type="Int32" />
+    <Property Name="SowStatusValue" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Userid" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="IsMapped" Type="Boolean" />
+    <Property Name="IsUpdated" Type="Boolean" Nullable="false" />
+    <Property Name="IsDUHUpdated" Type="Boolean" Nullable="false" />
+    <Property Name="OpportunityCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LOB" Relationship="Self.FK__Opportuni__LobId__0E6E26BF" FromRole="Opportunity" ToRole="LOB" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK_Project_OpportunityID" FromRole="Opportunity" ToRole="Project" />
+    <NavigationProperty Name="ProjectActualByDUHs" Relationship="Self.FK_ProjectActualByDUHOpportunityID" FromRole="Opportunity" ToRole="ProjectActualByDUH" />
+    <NavigationProperty Name="ProjectForecastByDUHs" Relationship="Self.FK_ProjectForecastByDUHOpportunityID" FromRole="Opportunity" ToRole="ProjectForecastByDUH" />
+  </EntityType>
+  <EntityType Name="OpportunityForecastBySale">
+    <Key>
+      <PropertyRef Name="SalesForceCastID" />
+    </Key>
+    <Property Name="SalesForceCastID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuaterID" Type="Int32" Nullable="false" />
+    <Property Name="forecastvaluebysales" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="SalesForceGuid" Type="Int64" />
+    <NavigationProperty Name="Quater" Relationship="Self.FK__Opportuni__Quate__6B24EA82" FromRole="OpportunityForecastBySales" ToRole="Quater" />
+  </EntityType>
+  <EntityType Name="OpportunityForecastBySales2">
+    <Key>
+      <PropertyRef Name="SalesForceCastID" />
+    </Key>
+    <Property Name="SalesForceCastID" Type="Int32" Nullable="false" />
+    <Property Name="QuaterID" Type="Int32" Nullable="false" />
+    <Property Name="forecastvaluebysales" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProductGroup">
+    <Key>
+      <PropertyRef Name="ProductGroupID" />
+    </Key>
+    <Property Name="ProductGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductGroupName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OpportunityID" Type="Int32" Nullable="false" />
+    <Property Name="SowStatusID" Type="Int32" Nullable="false" />
+    <Property Name="poavilable" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="pobalance" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Opportunity" Relationship="Self.FK_Project_OpportunityID" FromRole="Project" ToRole="Opportunity" />
+    <NavigationProperty Name="SOWStatu" Relationship="Self.FK_Project_SowStatusID" FromRole="Project" ToRole="SOWStatus" />
+  </EntityType>
+  <EntityType Name="ProjectActualByDUH">
+    <Key>
+      <PropertyRef Name="duhactualid" />
+    </Key>
+    <Property Name="duhactualid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OpportunityID" Type="Int32" Nullable="false" />
+    <Property Name="actualvaluebyduh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="QuaterID" Type="Int32" />
+    <Property Name="IsNew" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Opportunity" Relationship="Self.FK_ProjectActualByDUHOpportunityID" FromRole="ProjectActualByDUH" ToRole="Opportunity" />
+    <NavigationProperty Name="Quater" Relationship="Self.fk_QuaterID" FromRole="ProjectActualByDUH" ToRole="Quater" />
+  </EntityType>
+  <EntityType Name="ProjectForecastByDUH">
+    <Key>
+      <PropertyRef Name="DUhforecastid" />
+    </Key>
+    <Property Name="DUhforecastid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OpportunityID" Type="Int32" Nullable="false" />
+    <Property Name="forecastvaluebyduh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="QuaterID" Type="Int32" />
+    <Property Name="IsNew" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Opportunity" Relationship="Self.FK_ProjectForecastByDUHOpportunityID" FromRole="ProjectForecastByDUH" ToRole="Opportunity" />
+    <NavigationProperty Name="Quater" Relationship="Self.frk_QuaterID" FromRole="ProjectForecastByDUH" ToRole="Quater" />
+  </EntityType>
+  <EntityType Name="Quater">
+    <Key>
+      <PropertyRef Name="QuaterID" />
+    </Key>
+    <Property Name="QuaterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StratDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="QuaterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuaterNumber" Type="Int32" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="OpportunityForecastBySales" Relationship="Self.FK__Opportuni__Quate__6B24EA82" FromRole="Quater" ToRole="OpportunityForecastBySales" />
+    <NavigationProperty Name="ProjectActualByDUHs" Relationship="Self.fk_QuaterID" FromRole="Quater" ToRole="ProjectActualByDUH" />
+    <NavigationProperty Name="ProjectForecastByDUHs" Relationship="Self.frk_QuaterID" FromRole="Quater" ToRole="ProjectForecastByDUH" />
+  </EntityType>
+  <EntityType Name="Quater1">
+    <Key>
+      <PropertyRef Name="QuaterID" />
+    </Key>
+    <Property Name="QuaterID" Type="Int32" Nullable="false" />
+    <Property Name="StratDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="QuaterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuaterNumber" Type="Int32" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_RoleID" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="SDU">
+    <Key>
+      <PropertyRef Name="SDUID" />
+    </Key>
+    <Property Name="SDUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SDUName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LOBID" Type="Int32" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="DUs" Relationship="Self.FK_SDUIDFORDU" FromRole="SDU" ToRole="DU" />
+    <NavigationProperty Name="LOB" Relationship="Self.FK_LOBID" FromRole="SDU" ToRole="LOB" />
+  </EntityType>
+  <EntityType Name="ServiceLine">
+    <Key>
+      <PropertyRef Name="ServiceLineID" />
+    </Key>
+    <Property Name="ServiceLineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceLineName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SOWStatu">
+    <Key>
+      <PropertyRef Name="SOWStatusID" />
+    </Key>
+    <Property Name="SOWStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SOWStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK_Project_SowStatusID" FromRole="SOWStatus" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="ISActive" Type="Boolean" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DUs" Relationship="Self.FK_DUHeadID" FromRole="User" ToRole="DU" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_RoleID" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="UserAccess">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="LOBID" Type="Int32" Nullable="false" />
+    <Property Name="SDUID" Type="Int32" Nullable="false" />
+    <Property Name="DUID" Type="Int32" Nullable="false" />
+    <Property Name="startdate" Type="DateTime" Precision="0" />
+    <Property Name="Enddate" Type="DateTime" Precision="0" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Opportunity_Latest">
+    <Key>
+      <PropertyRef Name="OpportunityID" />
+      <PropertyRef Name="OpportunityName" />
+      <PropertyRef Name="DealStageID" />
+      <PropertyRef Name="SowStatusID" />
+      <PropertyRef Name="AMID" />
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="ProgramName" />
+      <PropertyRef Name="ServiceLineID" />
+      <PropertyRef Name="ProductGroupID" />
+      <PropertyRef Name="DBBLDUID" />
+      <PropertyRef Name="Createdby" />
+      <PropertyRef Name="Modifiedby" />
+      <PropertyRef Name="SalesForceCastID" />
+      <PropertyRef Name="IsUpdated" />
+    </Key>
+    <Property Name="OpportunityID" Type="Int32" Nullable="false" />
+    <Property Name="OpportunityName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DealStageID" Type="Int32" Nullable="false" />
+    <Property Name="SowStatusID" Type="Int32" Nullable="false" />
+    <Property Name="AMID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ProgramName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ServiceLineID" Type="Int32" Nullable="false" />
+    <Property Name="ProductGroupID" Type="Int32" Nullable="false" />
+    <Property Name="DBBLDUID" Type="Int32" Nullable="false" />
+    <Property Name="TCV" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="acv" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="sowvalue" Type="Int32" />
+    <Property Name="BillingStratDate" Type="DateTime" Precision="0" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="SalesForceCastID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="SalesForceGuid" Type="Int64" />
+    <Property Name="DUID" Type="Int32" />
+    <Property Name="LobId" Type="Int32" />
+    <Property Name="SowStatusValue" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Userid" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="IsMapped" Type="Boolean" />
+    <Property Name="IsUpdated" Type="Boolean" Nullable="false" />
+    <Property Name="OpportunityCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="quater_Actual">
+    <Key>
+      <PropertyRef Name="QuaterID" />
+      <PropertyRef Name="StratDate" />
+      <PropertyRef Name="EndDate" />
+      <PropertyRef Name="Createdby" />
+      <PropertyRef Name="Modifiedby" />
+    </Key>
+    <Property Name="QuaterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StratDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="QuaterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuaterNumber" Type="Int32" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="Createdby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK_DUHeadID">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="DU" Type="Self.DU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="DU">
+        <PropertyRef Name="DUHeadID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SDUIDFORDU">
+    <End Role="SDU" Type="Self.SDU" Multiplicity="1" />
+    <End Role="DU" Type="Self.DU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SDU">
+        <PropertyRef Name="SDUID" />
+      </Principal>
+      <Dependent Role="DU">
+        <PropertyRef Name="SDUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Opportuni__LobId__0E6E26BF">
+    <End Role="LOB" Type="Self.LOB" Multiplicity="0..1" />
+    <End Role="Opportunity" Type="Self.Opportunity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOB">
+        <PropertyRef Name="LOBID" />
+      </Principal>
+      <Dependent Role="Opportunity">
+        <PropertyRef Name="LobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOBID">
+    <End Role="LOB" Type="Self.LOB" Multiplicity="1" />
+    <End Role="SDU" Type="Self.SDU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOB">
+        <PropertyRef Name="LOBID" />
+      </Principal>
+      <Dependent Role="SDU">
+        <PropertyRef Name="LOBID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_OpportunityID">
+    <End Role="Opportunity" Type="Self.Opportunity" Multiplicity="1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunity">
+        <PropertyRef Name="OpportunityID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="OpportunityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectActualByDUHOpportunityID">
+    <End Role="Opportunity" Type="Self.Opportunity" Multiplicity="1" />
+    <End Role="ProjectActualByDUH" Type="Self.ProjectActualByDUH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunity">
+        <PropertyRef Name="OpportunityID" />
+      </Principal>
+      <Dependent Role="ProjectActualByDUH">
+        <PropertyRef Name="OpportunityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectForecastByDUHOpportunityID">
+    <End Role="Opportunity" Type="Self.Opportunity" Multiplicity="1" />
+    <End Role="ProjectForecastByDUH" Type="Self.ProjectForecastByDUH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunity">
+        <PropertyRef Name="OpportunityID" />
+      </Principal>
+      <Dependent Role="ProjectForecastByDUH">
+        <PropertyRef Name="OpportunityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Opportuni__Quate__6B24EA82">
+    <End Role="Quater" Type="Self.Quater" Multiplicity="1" />
+    <End Role="OpportunityForecastBySales" Type="Self.OpportunityForecastBySale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quater">
+        <PropertyRef Name="QuaterID" />
+      </Principal>
+      <Dependent Role="OpportunityForecastBySales">
+        <PropertyRef Name="QuaterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_SowStatusID">
+    <End Role="SOWStatus" Type="Self.SOWStatu" Multiplicity="1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOWStatus">
+        <PropertyRef Name="SOWStatusID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="SowStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QuaterID">
+    <End Role="Quater" Type="Self.Quater" Multiplicity="0..1" />
+    <End Role="ProjectActualByDUH" Type="Self.ProjectActualByDUH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quater">
+        <PropertyRef Name="QuaterID" />
+      </Principal>
+      <Dependent Role="ProjectActualByDUH">
+        <PropertyRef Name="QuaterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="frk_QuaterID">
+    <End Role="Quater" Type="Self.Quater" Multiplicity="0..1" />
+    <End Role="ProjectForecastByDUH" Type="Self.ProjectForecastByDUH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quater">
+        <PropertyRef Name="QuaterID" />
+      </Principal>
+      <Dependent Role="ProjectForecastByDUH">
+        <PropertyRef Name="QuaterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_RoleID">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinanceToolEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="DealStages" EntityType="Self.DealStage" />
+    <EntitySet Name="DUs" EntityType="Self.DU" />
+    <EntitySet Name="DUHTestTables" EntityType="Self.DUHTestTable" />
+    <EntitySet Name="LOBs" EntityType="Self.LOB" />
+    <EntitySet Name="Opportunities" EntityType="Self.Opportunity" />
+    <EntitySet Name="OpportunityForecastBySales" EntityType="Self.OpportunityForecastBySale" />
+    <EntitySet Name="OpportunityForecastBySales2" EntityType="Self.OpportunityForecastBySales2" />
+    <EntitySet Name="ProductGroups" EntityType="Self.ProductGroup" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="ProjectActualByDUHs" EntityType="Self.ProjectActualByDUH" />
+    <EntitySet Name="ProjectForecastByDUHs" EntityType="Self.ProjectForecastByDUH" />
+    <EntitySet Name="Quaters" EntityType="Self.Quater" />
+    <EntitySet Name="Quater1" EntityType="Self.Quater1" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="SDUs" EntityType="Self.SDU" />
+    <EntitySet Name="ServiceLines" EntityType="Self.ServiceLine" />
+    <EntitySet Name="SOWStatus" EntityType="Self.SOWStatu" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserAccesses" EntityType="Self.UserAccess" />
+    <EntitySet Name="Opportunity_Latest" EntityType="Self.Opportunity_Latest" />
+    <EntitySet Name="quater_Actual" EntityType="Self.quater_Actual" />
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+    <AssociationSet Name="FK_DUHeadID" Association="Self.FK_DUHeadID">
+      <End Role="User" EntitySet="Users" />
+      <End Role="DU" EntitySet="DUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SDUIDFORDU" Association="Self.FK_SDUIDFORDU">
+      <End Role="SDU" EntitySet="SDUs" />
+      <End Role="DU" EntitySet="DUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Opportuni__LobId__0E6E26BF" Association="Self.FK__Opportuni__LobId__0E6E26BF">
+      <End Role="LOB" EntitySet="LOBs" />
+      <End Role="Opportunity" EntitySet="Opportunities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOBID" Association="Self.FK_LOBID">
+      <End Role="LOB" EntitySet="LOBs" />
+      <End Role="SDU" EntitySet="SDUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_OpportunityID" Association="Self.FK_Project_OpportunityID">
+      <End Role="Opportunity" EntitySet="Opportunities" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectActualByDUHOpportunityID" Association="Self.FK_ProjectActualByDUHOpportunityID">
+      <End Role="Opportunity" EntitySet="Opportunities" />
+      <End Role="ProjectActualByDUH" EntitySet="ProjectActualByDUHs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectForecastByDUHOpportunityID" Association="Self.FK_ProjectForecastByDUHOpportunityID">
+      <End Role="Opportunity" EntitySet="Opportunities" />
+      <End Role="ProjectForecastByDUH" EntitySet="ProjectForecastByDUHs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Opportuni__Quate__6B24EA82" Association="Self.FK__Opportuni__Quate__6B24EA82">
+      <End Role="Quater" EntitySet="Quaters" />
+      <End Role="OpportunityForecastBySales" EntitySet="OpportunityForecastBySales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_SowStatusID" Association="Self.FK_Project_SowStatusID">
+      <End Role="SOWStatus" EntitySet="SOWStatus" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QuaterID" Association="Self.fk_QuaterID">
+      <End Role="Quater" EntitySet="Quaters" />
+      <End Role="ProjectActualByDUH" EntitySet="ProjectActualByDUHs" />
+    </AssociationSet>
+    <AssociationSet Name="frk_QuaterID" Association="Self.frk_QuaterID">
+      <End Role="Quater" EntitySet="Quaters" />
+      <End Role="ProjectForecastByDUH" EntitySet="ProjectForecastByDUHs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_RoleID" Association="Self.FK_User_RoleID">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <FunctionImport Name="AMTable" ReturnType="Collection(FinanceToolModel.AMTable_Result)" />
+    <FunctionImport Name="Usp_GetAdminMainDetails" ReturnType="Collection(FinanceToolModel.Usp_GetAdminMainDetails_Result)" />
+    <FunctionImport Name="Usp_GetAdminMainDetails_V1" ReturnType="Collection(FinanceToolModel.Usp_GetAdminMainDetails_V1_Result)" />
+    <FunctionImport Name="Usp_GetAdminMainDetails_V2" ReturnType="Collection(FinanceToolModel.Usp_GetAdminMainDetails_V2_Result)" />
+    <FunctionImport Name="Usp_GetAmDetailsbyProjectId" ReturnType="Collection(FinanceToolModel.Usp_GetAmDetailsbyProjectId_Result)">
+      <Parameter Name="ProjectId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetAmMainDetails" ReturnType="Collection(FinanceToolModel.Usp_GetAmMainDetails_Result)" />
+    <FunctionImport Name="Usp_GetAmMainDetails_Test" ReturnType="Collection(FinanceToolModel.Usp_GetAmMainDetails_Test_Result)" />
+    <FunctionImport Name="Usp_GetAmMainDetails_V1" ReturnType="Collection(FinanceToolModel.Usp_GetAmMainDetails_V1_Result)" />
+    <FunctionImport Name="Usp_GetAmMainDetails_V2" ReturnType="Collection(FinanceToolModel.Usp_GetAmMainDetails_V2_Result)" />
+    <FunctionImport Name="Usp_GetDUHDetails_Comparision" ReturnType="Collection(FinanceToolModel.Usp_GetDUHDetails_Comparision_Result)">
+      <Parameter Name="SDUID" Mode="In" Type="String" />
+      <Parameter Name="DUID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetDUHDetails_Comparision_OldDetails" ReturnType="Collection(FinanceToolModel.Usp_GetDUHDetails_Comparision_OldDetails_Result)">
+      <Parameter Name="SDUID" Mode="In" Type="String" />
+      <Parameter Name="DUID" Mode="In" Type="String" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetDUHDetails_Comparision_V1" ReturnType="Collection(FinanceToolModel.Usp_GetDUHDetails_Comparision_V1_Result)">
+      <Parameter Name="SDUID" Mode="In" Type="String" />
+      <Parameter Name="DUID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetDUHDetails_Comparision_V2" ReturnType="Collection(FinanceToolModel.Usp_GetDUHDetails_Comparision_V2_Result)">
+      <Parameter Name="SDUID" Mode="In" Type="String" />
+      <Parameter Name="DUID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetDUHeadMainDetails" ReturnType="Collection(FinanceToolModel.Usp_GetDUHeadMainDetails_Result)" />
+    <FunctionImport Name="Usp_GetDUHMainDetails" ReturnType="Collection(FinanceToolModel.Usp_GetDUHMainDetails_Result)" />
+    <FunctionImport Name="Usp_GetDUHMainDetails_07_02_2019" ReturnType="Collection(FinanceToolModel.Usp_GetDUHMainDetails_07_02_2019_Result)" />
+    <FunctionImport Name="Usp_GetDUHMainDetails_27_06_2019" ReturnType="Collection(FinanceToolModel.Usp_GetDUHMainDetails_27_06_2019_Result)" />
+    <FunctionImport Name="Usp_GetDUHMainDetails_27_06_2019_backup" ReturnType="Collection(FinanceToolModel.Usp_GetDUHMainDetails_27_06_2019_backup_Result)" />
+    <FunctionImport Name="Usp_GetDUHMainDetails_V1" ReturnType="Collection(FinanceToolModel.Usp_GetDUHMainDetails_V1_Result)" />
+    <FunctionImport Name="Usp_GetDUHMainDetails_V2" ReturnType="Collection(FinanceToolModel.Usp_GetDUHMainDetails_V2_Result)" />
+    <FunctionImport Name="Usp_GetDUHMainDetailsByUserID" ReturnType="Collection(FinanceToolModel.Usp_GetDUHMainDetailsByUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetDUHMainDetailsByUserID_V1" ReturnType="Collection(FinanceToolModel.Usp_GetDUHMainDetailsByUserID_V1_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetDUHMainDetailsByUserID_V2" ReturnType="Collection(FinanceToolModel.Usp_GetDUHMainDetailsByUserID_V2_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetDUMasterDetails" ReturnType="Collection(FinanceToolModel.Usp_GetDUMasterDetails_Result)" />
+    <FunctionImport Name="Usp_GetOpportunityDetails" ReturnType="Collection(FinanceToolModel.Usp_GetOpportunityDetails_Result)" />
+    <FunctionImport Name="Usp_GetPMOOpportunityDetails" ReturnType="Collection(FinanceToolModel.Usp_GetPMOOpportunityDetails_Result)" />
+    <FunctionImport Name="Usp_GetProjectMasterDetails" ReturnType="Collection(FinanceToolModel.Usp_GetProjectMasterDetails_Result)" />
+    <FunctionImport Name="Usp_GetSDUMasterDetails" ReturnType="Collection(FinanceToolModel.Usp_GetSDUMasterDetails_Result)" />
+    <FunctionImport Name="Usp_GetUserMasterDetails" ReturnType="Collection(FinanceToolModel.Usp_GetUserMasterDetails_Result)" />
+    <FunctionImport Name="Usp_InsertOpportunityLatest">
+      <Parameter Name="OpportunityID" Mode="In" Type="Int32" />
+      <Parameter Name="OpportunityName" Mode="In" Type="String" />
+      <Parameter Name="DealStageID" Mode="In" Type="Int32" />
+      <Parameter Name="SowStatusID" Mode="In" Type="Int32" />
+      <Parameter Name="AMID" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+      <Parameter Name="ProgramName" Mode="In" Type="String" />
+      <Parameter Name="ServiceLineID" Mode="In" Type="Int32" />
+      <Parameter Name="ProductGroupID" Mode="In" Type="Int32" />
+      <Parameter Name="DBBLDUID" Mode="In" Type="Int32" />
+      <Parameter Name="TCV" Mode="In" Type="Decimal" />
+      <Parameter Name="acv" Mode="In" Type="Decimal" />
+      <Parameter Name="sowvalue" Mode="In" Type="Int32" />
+      <Parameter Name="BillingStratDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="Createdby" Mode="In" Type="String" />
+      <Parameter Name="Createddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Modifiedby" Mode="In" Type="String" />
+      <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="SalesForceCastID" Mode="In" Type="Int32" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="SalesForceGuid" Mode="In" Type="Int64" />
+      <Parameter Name="DUID" Mode="In" Type="Int32" />
+      <Parameter Name="LobId" Mode="In" Type="Int32" />
+      <Parameter Name="SowStatusValue" Mode="In" Type="Decimal" />
+      <Parameter Name="Userid" Mode="In" Type="Int32" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="IsMapped" Mode="In" Type="Boolean" />
+      <Parameter Name="IsUpdated" Mode="In" Type="Boolean" />
+      <Parameter Name="opportunitycategory" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_Update_Opportunity_IsMapped">
+      <Parameter Name="OpportunityID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_UpdateIsActiveQuaters">
+      <Parameter Name="CurrentQuater" Mode="In" Type="String" />
+      <Parameter Name="FirstQuater" Mode="In" Type="String" />
+      <Parameter Name="SecondQuater" Mode="In" Type="String" />
+      <Parameter Name="ThiredQuater" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_UpdateOpportunity">
+      <Parameter Name="OpportunityID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_UpdateOpportunityLatest">
+      <Parameter Name="OpportunityID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetForecastValues" ReturnType="Collection(FinanceToolModel.Usp_GetForecastValues_Result)" />
+  </EntityContainer>
+  <ComplexType Name="AMTable_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Decimal" Name="TCV" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="acv" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="sowvalue" Nullable="true" />
+    <Property Type="String" Name="DealStage" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="BillingStratDate" Nullable="true" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QuaterName" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="forecastvaluebysales" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetAdminMainDetails_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="true" />
+    <Property Type="String" Name="DUName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ServiceLine" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="true" />
+    <Property Type="String" Name="ProductGroup" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="true" />
+    <Property Type="Decimal" Name="TCV" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="acv" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="sowvalue" Nullable="true" />
+    <Property Type="String" Name="SOWStatus" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStage" Nullable="false" />
+    <Property Type="String" Name="DealStagestatus" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="opportunitycategory" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="BillingStratDate" Nullable="true" />
+    <Property Type="String" Name="note" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Decimal" Name="AMJ19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="SowStatusValue" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetAdminMainDetails_V1_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="true" />
+    <Property Type="String" Name="DUName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ServiceLine" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="true" />
+    <Property Type="String" Name="ProductGroup" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="true" />
+    <Property Type="Decimal" Name="TCV" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="acv" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="sowvalue" Nullable="true" />
+    <Property Type="String" Name="SOWStatus" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStage" Nullable="false" />
+    <Property Type="String" Name="DealStagestatus" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="opportunitycategory" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="BillingStratDate" Nullable="true" />
+    <Property Type="String" Name="note" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Decimal" Name="AMJ19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="SowStatusValue" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetAdminMainDetails_V2_Result">
+    <Property Type="Int32" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="AMID" Nullable="true" />
+    <Property Type="String" Name="LOBName" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="LOBID" Nullable="true" />
+    <Property Type="Int32" Name="SDUID" Nullable="true" />
+    <Property Type="String" Name="DUName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="true" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="true" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="true" />
+    <Property Type="String" Name="OpportunityName" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ServiceLine" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ProgramName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="true" />
+    <Property Type="String" Name="ProductGroup" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="true" />
+    <Property Type="Decimal" Name="TCV" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="acv" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="sowvalue" Nullable="true" />
+    <Property Type="String" Name="SOWStatus" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DealStage" Nullable="true" />
+    <Property Type="String" Name="DealStagestatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="opportunitycategory" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="BillingStratDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="note" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Decimal" Name="AMJ19" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="SowStatusValue" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetAmDetailsbyProjectId_Result">
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="Int32" Name="DUID" Nullable="false" />
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SOWStatusID" Nullable="false" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetAmMainDetails_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="true" />
+    <Property Type="String" Name="DUName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ServiceLine" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="true" />
+    <Property Type="String" Name="ProductGroup" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="true" />
+    <Property Type="Decimal" Name="TCV" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="acv" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="sowvalue" Nullable="true" />
+    <Property Type="String" Name="SOWStatus" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStage" Nullable="false" />
+    <Property Type="String" Name="DealStagestatus" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="opportunitycategory" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="BillingStratDate" Nullable="true" />
+    <Property Type="String" Name="note" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Decimal" Name="AMJ19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="SowStatusValue" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Userid" Nullable="true" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetAmMainDetails_Test_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Decimal" Name="TCV" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="acv" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="sowvalue" Nullable="true" />
+    <Property Type="String" Name="DealStage" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="BillingStratDate" Nullable="true" />
+    <Property Type="String" Name="Note_Comment" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetAmMainDetails_V1_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="true" />
+    <Property Type="String" Name="DUName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ServiceLine" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="true" />
+    <Property Type="String" Name="ProductGroup" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="true" />
+    <Property Type="Decimal" Name="TCV" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="acv" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="sowvalue" Nullable="true" />
+    <Property Type="String" Name="SOWStatus" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStage" Nullable="false" />
+    <Property Type="String" Name="DealStageStatus" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="opportunitycategory" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="BillingStratDate" Nullable="true" />
+    <Property Type="String" Name="note" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Decimal" Name="AMJ19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="SowStatusValue" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Userid" Nullable="true" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetAmMainDetails_V2_Result">
+    <Property Type="Int32" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="AMID" Nullable="true" />
+    <Property Type="String" Name="LOBName" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="LOBID" Nullable="true" />
+    <Property Type="Int32" Name="SDUID" Nullable="true" />
+    <Property Type="String" Name="DUName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="true" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="true" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="true" />
+    <Property Type="String" Name="OpportunityName" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ServiceLine" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ProgramName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="true" />
+    <Property Type="String" Name="ProductGroup" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="true" />
+    <Property Type="Decimal" Name="TCV" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="acv" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="sowvalue" Nullable="true" />
+    <Property Type="String" Name="SOWStatus" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DealStage" Nullable="true" />
+    <Property Type="String" Name="DealStagestatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="opportunitycategory" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="BillingStratDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="note" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Decimal" Name="AMJ19" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="SowStatusValue" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="true" />
+    <Property Type="Int32" Name="Userid" Nullable="true" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHDetails_Comparision_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUHEADID" Nullable="false" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="SowStatus1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="DealStagestatus" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND18_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHDetails_Comparision_OldDetails_Result">
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUHEADID" Nullable="false" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="SowStatus1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="DealStagestatus" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND18_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHDetails_Comparision_V1_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUHEADID" Nullable="false" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="SowStatus1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="DealStagestatus" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND18_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHDetails_Comparision_V2_Result">
+    <Property Type="Int32" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="AMID" Nullable="true" />
+    <Property Type="String" Name="LOBName" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="LOBID" Nullable="true" />
+    <Property Type="Int32" Name="SDUID" Nullable="true" />
+    <Property Type="String" Name="DUName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DUHEADID" Nullable="true" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="true" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="true" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="true" />
+    <Property Type="String" Name="OpportunityName" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ProgramName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="true" />
+    <Property Type="String" Name="ProductGroup" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="true" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="SOWStatus1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DealStagestatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND18_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DealStageID" Nullable="true" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHeadMainDetails_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="sowvalue" Nullable="true" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_Act" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note_Comment" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHMainDetails_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="SowStatus1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="DealStagestatus" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND18_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHMainDetails_07_02_2019_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHMainDetails_27_06_2019_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHMainDetails_27_06_2019_backup_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHMainDetails_V1_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="SowStatus1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="DealStagestatus" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND18_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHMainDetails_V2_Result">
+    <Property Type="Int32" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="AMID" Nullable="true" />
+    <Property Type="String" Name="LOBName" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="LOBID" Nullable="true" />
+    <Property Type="Int32" Name="SDUID" Nullable="true" />
+    <Property Type="String" Name="DUName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="true" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="true" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="true" />
+    <Property Type="String" Name="OpportunityName" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ProgramName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="true" />
+    <Property Type="String" Name="ProductGroup" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="true" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="SOWStatus1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DealStagestatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND18_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DealStageID" Nullable="true" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHMainDetailsByUserID_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUHEADID" Nullable="false" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="SowStatus1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="DealStagestatus" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND18_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHMainDetailsByUserID_V1_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUHEADID" Nullable="false" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="false" />
+    <Property Type="String" Name="ProductGroup" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="false" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="SowStatus1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="DealStagestatus" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND18_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22_FC" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM19_ACT" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DealStageID" Nullable="false" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUHMainDetailsByUserID_V2_Result">
+    <Property Type="Int32" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="AMID" Nullable="true" />
+    <Property Type="String" Name="LOBName" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="LOBID" Nullable="true" />
+    <Property Type="Int32" Name="SDUID" Nullable="true" />
+    <Property Type="String" Name="DUName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DUHEADID" Nullable="true" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="true" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="true" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="true" />
+    <Property Type="String" Name="OpportunityName" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ServiceLine" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ProgramName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="true" />
+    <Property Type="String" Name="ProductGroup" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="true" />
+    <Property Type="Int32" Name="SowStatus" Nullable="true" />
+    <Property Type="String" Name="SOWStatus1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DealStagestatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="AMJ19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND20_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM21_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AMJ21_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS21_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND21_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND18_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM22_FC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JFM19_ACT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="DealStageID" Nullable="true" />
+    <Property Type="Boolean" Name="IsUpdated" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDUMasterDetails_Result">
+    <Property Type="Int32" Name="DUID" Nullable="false" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="AMName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="DUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="SDUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="DUHeadID" Nullable="false" />
+    <Property Type="String" Name="DUHeadName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Createdby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="Createddate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Modifiedby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetOpportunityDetails_Result">
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetPMOOpportunityDetails_Result">
+    <Property Type="Int64" Name="S_No" Nullable="true" />
+    <Property Type="String" Name="Customername" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="AMName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="AMID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="Int32" Name="SDUID" Nullable="true" />
+    <Property Type="String" Name="DUName" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DUID" Nullable="true" />
+    <Property Type="String" Name="DBBLDU" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="DBBLDUID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityKeyID" Nullable="false" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ProjectID" Nullable="true" />
+    <Property Type="String" Name="ServiceLine" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ProgramName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ServiceLineID" Nullable="true" />
+    <Property Type="String" Name="ProductGroup" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="ProductGroupID" Nullable="true" />
+    <Property Type="Decimal" Name="TCV" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="acv" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="sowvalue" Nullable="true" />
+    <Property Type="Int32" Name="DealStage" Nullable="false" />
+    <Property Type="DateTime" Name="BillingStratDate" Nullable="true" />
+    <Property Type="String" Name="note" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Decimal" Name="AMJ19" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="JAS19" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OND19" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="OpportunityLobId" Nullable="true" />
+    <Property Type="String" Name="OpportunityLobName" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="SowStatusValue" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetProjectMasterDetails_Result">
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="OpportunityID" Nullable="false" />
+    <Property Type="String" Name="OpportunityName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SowStatusID" Nullable="false" />
+    <Property Type="String" Name="SOWStatus" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="poavilable" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="pobalance" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Createdby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="Createddate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Modifiedby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ProjectCode" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetSDUMasterDetails_Result">
+    <Property Type="Int32" Name="SDUID" Nullable="false" />
+    <Property Type="String" Name="SDUName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="LOBID" Nullable="false" />
+    <Property Type="String" Name="LOBName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Createdby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="Createddate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Modifiedby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetUserMasterDetails_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="RoleID" Nullable="false" />
+    <Property Type="Boolean" Name="ISActive" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Createdby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="Createddate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Modifiedby" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetForecastValues_Result">
+    <Property Type="Decimal" Name="ForecastValues" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="QuaterName" Nullable="true" MaxLength="255" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,134 @@
+﻿@model  FinaceTool.Models.ViewModels.ProjectDetails
+
+@{
+
+}
+@using (Html.BeginForm())
+{
+    <div >
+        <table id="customers">
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.CustomerName)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.CustomerNames, new SelectList(Model.CustomerNames), "--Select customer name--")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.AMName)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.AMNames, new SelectList(Model.AMNames), "--Select AMName--")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.LOB)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.LOBs, new SelectList(Model.LOBs), "--Select LOB--")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.DUName)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.DUNames, new SelectList(Model.DUNames), "--Select DUName--")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.DBBLDU)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.DUNames, new SelectList(Model.DUNames), "--Select DBBL name--")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.OpportunityID)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.OppurtunityIDs, new SelectList(Model.OppurtunityIDs), "--Select Oppurtunity ID--")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.OpportunityName)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.OpportunityNames, new SelectList(Model.OpportunityNames), "--Select Opportunity Name--")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.ProjectID)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.ProjectIDs, new SelectList(Model.ProjectIDs), "--Select Project ID--")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.ProgramName)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.ProgramNames, new SelectList(Model.ProgramNames), "--Select Program Name--")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.ServiceLine)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.ServiceLines, new SelectList(Model.ServiceLines), "--Select Service Line--")
+                </td>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.ProductGroup)
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.ProductGroups, new SelectList(Model.ProductGroups), "--Select Product Group--")
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    @Html.ActionLink("Save", "Save", new { }) |
+                    @Html.ActionLink("Cancel", "Cancel", new { })
+                </td>
+            </tr>
+        </table>
+                </div>
+                }
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+    </style>

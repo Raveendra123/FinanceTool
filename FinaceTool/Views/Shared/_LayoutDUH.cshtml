@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Finance Tool</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.0.js"></script>
+    <script src="~/Scripts/i18n/grid.locale-en.js"></script>
+    <script src="~/Scripts/jquery.jqGrid.min.js"></script>
+    <style>
+        .Header_BG {
+            background-color: #069;
+            color: #fff;
+            border-bottom: 6px solid #09f;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #069;
+        }
+
+        Bottom_BG {
+            background-color: #069;
+            color: #fff;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    @if (!String.IsNullOrEmpty((string)HttpContext.Current.Session["UserName"]))
+    {
+
+
+
+        <nav class="navbar navbar-inverse" style="background-color:#2b5cab; border-color: #2b5cab;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="~/Content/Images/hcl-logo.png" /></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="#" style="padding:15px 15px;color:cornsilk;"><span class="glyphicon glyphicon-user">Welcome @Session["UserName"]</span></a></li>
+                        <li><a href="/Login/LogOut" style="padding:15px 15px;color:cornsilk;"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    }
+
+
+    <div class="container body-content">
+        @RenderBody()
+
+
+    </div>
+
+    <footer class="footer Bottom_BG">
+        <div class="container">
+            <div class="navbar-text pull-left"><p><img src="~/Content/Images/hcl-logo.png" /> © 2015 </p></div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

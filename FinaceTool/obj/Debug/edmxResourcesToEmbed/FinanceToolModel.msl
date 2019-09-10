@@ -1,0 +1,1711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinanceToolModelStoreContainer" CdmEntityContainer="FinanceToolEntities">
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="FinanceToolModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DealStages">
+      <EntityTypeMapping TypeName="FinanceToolModel.DealStage">
+        <MappingFragment StoreEntitySet="DealStage">
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="DealStage1" ColumnName="DealStage" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="probability" ColumnName="probability" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DUs">
+      <EntityTypeMapping TypeName="FinanceToolModel.DU">
+        <MappingFragment StoreEntitySet="DU">
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUHeadID" ColumnName="DUHeadID" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DUHTestTables">
+      <EntityTypeMapping TypeName="FinanceToolModel.DUHTestTable">
+        <MappingFragment StoreEntitySet="DUHTestTable">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="poavailable" ColumnName="poavailable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="AMJ19_Act" ColumnName="AMJ19_Act" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOBs">
+      <EntityTypeMapping TypeName="FinanceToolModel.LOB">
+        <MappingFragment StoreEntitySet="LOB">
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Opportunities">
+      <EntityTypeMapping TypeName="FinanceToolModel.Opportunity">
+        <MappingFragment StoreEntitySet="Opportunity">
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="SowStatusID" ColumnName="SowStatusID" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="SalesForceCastID" ColumnName="SalesForceCastID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SalesForceGuid" ColumnName="SalesForceGuid" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="LobId" ColumnName="LobId" />
+          <ScalarProperty Name="SowStatusValue" ColumnName="SowStatusValue" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IsMapped" ColumnName="IsMapped" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+          <ScalarProperty Name="IsDUHUpdated" ColumnName="IsDUHUpdated" />
+          <ScalarProperty Name="OpportunityCategory" ColumnName="OpportunityCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpportunityForecastBySales">
+      <EntityTypeMapping TypeName="FinanceToolModel.OpportunityForecastBySale">
+        <MappingFragment StoreEntitySet="OpportunityForecastBySales">
+          <ScalarProperty Name="SalesForceCastID" ColumnName="SalesForceCastID" />
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="forecastvaluebysales" ColumnName="forecastvaluebysales" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="SalesForceGuid" ColumnName="SalesForceGuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpportunityForecastBySales2">
+      <EntityTypeMapping TypeName="FinanceToolModel.OpportunityForecastBySales2">
+        <MappingFragment StoreEntitySet="OpportunityForecastBySales2">
+          <ScalarProperty Name="SalesForceCastID" ColumnName="SalesForceCastID" />
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="forecastvaluebysales" ColumnName="forecastvaluebysales" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductGroups">
+      <EntityTypeMapping TypeName="FinanceToolModel.ProductGroup">
+        <MappingFragment StoreEntitySet="ProductGroup">
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="ProductGroupName" ColumnName="ProductGroupName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="FinanceToolModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="SowStatusID" ColumnName="SowStatusID" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectActualByDUHs">
+      <EntityTypeMapping TypeName="FinanceToolModel.ProjectActualByDUH">
+        <MappingFragment StoreEntitySet="ProjectActualByDUH">
+          <ScalarProperty Name="duhactualid" ColumnName="duhactualid" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="actualvaluebyduh" ColumnName="actualvaluebyduh" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectForecastByDUHs">
+      <EntityTypeMapping TypeName="FinanceToolModel.ProjectForecastByDUH">
+        <MappingFragment StoreEntitySet="ProjectForecastByDUH">
+          <ScalarProperty Name="DUhforecastid" ColumnName="DUhforecastid" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="forecastvaluebyduh" ColumnName="forecastvaluebyduh" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quaters">
+      <EntityTypeMapping TypeName="FinanceToolModel.Quater">
+        <MappingFragment StoreEntitySet="Quater">
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="StratDate" ColumnName="StratDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="QuaterName" ColumnName="QuaterName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="QuaterNumber" ColumnName="QuaterNumber" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quater1">
+      <EntityTypeMapping TypeName="FinanceToolModel.Quater1">
+        <MappingFragment StoreEntitySet="Quater1">
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="StratDate" ColumnName="StratDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="QuaterName" ColumnName="QuaterName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="QuaterNumber" ColumnName="QuaterNumber" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="FinanceToolModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SDUs">
+      <EntityTypeMapping TypeName="FinanceToolModel.SDU">
+        <MappingFragment StoreEntitySet="SDU">
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="SDUName" ColumnName="SDUName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceLines">
+      <EntityTypeMapping TypeName="FinanceToolModel.ServiceLine">
+        <MappingFragment StoreEntitySet="ServiceLine">
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ServiceLineName" ColumnName="ServiceLineName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOWStatus">
+      <EntityTypeMapping TypeName="FinanceToolModel.SOWStatu">
+        <MappingFragment StoreEntitySet="SOWStatus">
+          <ScalarProperty Name="SOWStatusID" ColumnName="SOWStatusID" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="FinanceToolModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="ISActive" ColumnName="ISActive" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccesses">
+      <EntityTypeMapping TypeName="FinanceToolModel.UserAccess">
+        <MappingFragment StoreEntitySet="UserAccess">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="Enddate" ColumnName="Enddate" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Opportunity_Latest">
+      <EntityTypeMapping TypeName="FinanceToolModel.Opportunity_Latest">
+        <MappingFragment StoreEntitySet="Opportunity_Latest">
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="SowStatusID" ColumnName="SowStatusID" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="SalesForceCastID" ColumnName="SalesForceCastID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SalesForceGuid" ColumnName="SalesForceGuid" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="LobId" ColumnName="LobId" />
+          <ScalarProperty Name="SowStatusValue" ColumnName="SowStatusValue" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IsMapped" ColumnName="IsMapped" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+          <ScalarProperty Name="OpportunityCategory" ColumnName="OpportunityCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quater_Actual">
+      <EntityTypeMapping TypeName="FinanceToolModel.quater_Actual">
+        <MappingFragment StoreEntitySet="quater_Actual">
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="StratDate" ColumnName="StratDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="QuaterName" ColumnName="QuaterName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="QuaterNumber" ColumnName="QuaterNumber" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="database_firewall_rules">
+      <EntityTypeMapping TypeName="FinanceToolModel.database_firewall_rules">
+        <MappingFragment StoreEntitySet="database_firewall_rules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AMTable" FunctionName="FinanceToolModel.Store.AMTable">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.AMTable_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="DealStage" ColumnName="DealStage" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="QuaterName" ColumnName="QuaterName" />
+          <ScalarProperty Name="forecastvaluebysales" ColumnName="forecastvaluebysales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetAdminMainDetails" FunctionName="FinanceToolModel.Store.Usp_GetAdminMainDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetAdminMainDetails_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="DealStage" ColumnName="DealStage" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="opportunitycategory" ColumnName="opportunitycategory" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AMJ19" ColumnName="AMJ19" />
+          <ScalarProperty Name="JAS19" ColumnName="JAS19" />
+          <ScalarProperty Name="OND19" ColumnName="OND19" />
+          <ScalarProperty Name="JFM20" ColumnName="JFM20" />
+          <ScalarProperty Name="AMJ20" ColumnName="AMJ20" />
+          <ScalarProperty Name="JAS20" ColumnName="JAS20" />
+          <ScalarProperty Name="OND20" ColumnName="OND20" />
+          <ScalarProperty Name="JFM21" ColumnName="JFM21" />
+          <ScalarProperty Name="AMJ21" ColumnName="AMJ21" />
+          <ScalarProperty Name="JAS21" ColumnName="JAS21" />
+          <ScalarProperty Name="OND21" ColumnName="OND21" />
+          <ScalarProperty Name="JFM22" ColumnName="JFM22" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="SowStatusValue" ColumnName="SowStatusValue" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetAdminMainDetails_V1" FunctionName="FinanceToolModel.Store.Usp_GetAdminMainDetails_V1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetAdminMainDetails_V1_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="DealStage" ColumnName="DealStage" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="opportunitycategory" ColumnName="opportunitycategory" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AMJ19" ColumnName="AMJ19" />
+          <ScalarProperty Name="JAS19" ColumnName="JAS19" />
+          <ScalarProperty Name="OND19" ColumnName="OND19" />
+          <ScalarProperty Name="JFM20" ColumnName="JFM20" />
+          <ScalarProperty Name="AMJ20" ColumnName="AMJ20" />
+          <ScalarProperty Name="JAS20" ColumnName="JAS20" />
+          <ScalarProperty Name="OND20" ColumnName="OND20" />
+          <ScalarProperty Name="JFM21" ColumnName="JFM21" />
+          <ScalarProperty Name="AMJ21" ColumnName="AMJ21" />
+          <ScalarProperty Name="JAS21" ColumnName="JAS21" />
+          <ScalarProperty Name="OND21" ColumnName="OND21" />
+          <ScalarProperty Name="JFM22" ColumnName="JFM22" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="SowStatusValue" ColumnName="SowStatusValue" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetAdminMainDetails_V2" FunctionName="FinanceToolModel.Store.Usp_GetAdminMainDetails_V2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetAdminMainDetails_V2_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="DealStage" ColumnName="DealStage" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="opportunitycategory" ColumnName="opportunitycategory" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AMJ19" ColumnName="AMJ19" />
+          <ScalarProperty Name="JAS19" ColumnName="JAS19" />
+          <ScalarProperty Name="OND19" ColumnName="OND19" />
+          <ScalarProperty Name="JFM20" ColumnName="JFM20" />
+          <ScalarProperty Name="AMJ20" ColumnName="AMJ20" />
+          <ScalarProperty Name="JAS20" ColumnName="JAS20" />
+          <ScalarProperty Name="OND20" ColumnName="OND20" />
+          <ScalarProperty Name="JFM21" ColumnName="JFM21" />
+          <ScalarProperty Name="AMJ21" ColumnName="AMJ21" />
+          <ScalarProperty Name="JAS21" ColumnName="JAS21" />
+          <ScalarProperty Name="OND21" ColumnName="OND21" />
+          <ScalarProperty Name="JFM22" ColumnName="JFM22" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="SowStatusValue" ColumnName="SowStatusValue" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetAmDetailsbyProjectId" FunctionName="FinanceToolModel.Store.Usp_GetAmDetailsbyProjectId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetAmDetailsbyProjectId_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SOWStatusID" ColumnName="SOWStatusID" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetAmMainDetails" FunctionName="FinanceToolModel.Store.Usp_GetAmMainDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetAmMainDetails_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="DealStage" ColumnName="DealStage" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="opportunitycategory" ColumnName="opportunitycategory" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AMJ19" ColumnName="AMJ19" />
+          <ScalarProperty Name="JAS19" ColumnName="JAS19" />
+          <ScalarProperty Name="OND19" ColumnName="OND19" />
+          <ScalarProperty Name="JFM20" ColumnName="JFM20" />
+          <ScalarProperty Name="AMJ20" ColumnName="AMJ20" />
+          <ScalarProperty Name="JAS20" ColumnName="JAS20" />
+          <ScalarProperty Name="OND20" ColumnName="OND20" />
+          <ScalarProperty Name="JFM21" ColumnName="JFM21" />
+          <ScalarProperty Name="AMJ21" ColumnName="AMJ21" />
+          <ScalarProperty Name="JAS21" ColumnName="JAS21" />
+          <ScalarProperty Name="OND21" ColumnName="OND21" />
+          <ScalarProperty Name="JFM22" ColumnName="JFM22" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="SowStatusValue" ColumnName="SowStatusValue" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetAmMainDetails_Test" FunctionName="FinanceToolModel.Store.Usp_GetAmMainDetails_Test">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetAmMainDetails_Test_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="DealStage" ColumnName="DealStage" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="Note_Comment" ColumnName="Note/Comment" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19 FC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetAmMainDetails_V1" FunctionName="FinanceToolModel.Store.Usp_GetAmMainDetails_V1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetAmMainDetails_V1_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="DealStage" ColumnName="DealStage" />
+          <ScalarProperty Name="DealStageStatus" ColumnName="DealStageStatus" />
+          <ScalarProperty Name="opportunitycategory" ColumnName="opportunitycategory" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AMJ19" ColumnName="AMJ19" />
+          <ScalarProperty Name="JAS19" ColumnName="JAS19" />
+          <ScalarProperty Name="OND19" ColumnName="OND19" />
+          <ScalarProperty Name="JFM20" ColumnName="JFM20" />
+          <ScalarProperty Name="AMJ20" ColumnName="AMJ20" />
+          <ScalarProperty Name="JAS20" ColumnName="JAS20" />
+          <ScalarProperty Name="OND20" ColumnName="OND20" />
+          <ScalarProperty Name="JFM21" ColumnName="JFM21" />
+          <ScalarProperty Name="AMJ21" ColumnName="AMJ21" />
+          <ScalarProperty Name="JAS21" ColumnName="JAS21" />
+          <ScalarProperty Name="OND21" ColumnName="OND21" />
+          <ScalarProperty Name="JFM22" ColumnName="JFM22" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="SowStatusValue" ColumnName="SowStatusValue" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetAmMainDetails_V2" FunctionName="FinanceToolModel.Store.Usp_GetAmMainDetails_V2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetAmMainDetails_V2_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="DealStage" ColumnName="DealStage" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="opportunitycategory" ColumnName="opportunitycategory" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AMJ19" ColumnName="AMJ19" />
+          <ScalarProperty Name="JAS19" ColumnName="JAS19" />
+          <ScalarProperty Name="OND19" ColumnName="OND19" />
+          <ScalarProperty Name="JFM20" ColumnName="JFM20" />
+          <ScalarProperty Name="AMJ20" ColumnName="AMJ20" />
+          <ScalarProperty Name="JAS20" ColumnName="JAS20" />
+          <ScalarProperty Name="OND20" ColumnName="OND20" />
+          <ScalarProperty Name="JFM21" ColumnName="JFM21" />
+          <ScalarProperty Name="AMJ21" ColumnName="AMJ21" />
+          <ScalarProperty Name="JAS21" ColumnName="JAS21" />
+          <ScalarProperty Name="OND21" ColumnName="OND21" />
+          <ScalarProperty Name="JFM22" ColumnName="JFM22" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="SowStatusValue" ColumnName="SowStatusValue" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHDetails_Comparision" FunctionName="FinanceToolModel.Store.Usp_GetDUHDetails_Comparision">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHDetails_Comparision_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUHEADID" ColumnName="DUHEADID" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="SowStatus1" ColumnName="SowStatus1" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="JFM20_FC" ColumnName="JFM20_FC" />
+          <ScalarProperty Name="JFM20_ACT" ColumnName="JFM20_ACT" />
+          <ScalarProperty Name="AMJ20_FC" ColumnName="AMJ20_FC" />
+          <ScalarProperty Name="AMJ20_ACT" ColumnName="AMJ20_ACT" />
+          <ScalarProperty Name="JAS20_FC" ColumnName="JAS20_FC" />
+          <ScalarProperty Name="JAS20_ACT" ColumnName="JAS20_ACT" />
+          <ScalarProperty Name="OND20_FC" ColumnName="OND20_FC" />
+          <ScalarProperty Name="OND20_ACT" ColumnName="OND20_ACT" />
+          <ScalarProperty Name="JFM21_ACT" ColumnName="JFM21_ACT" />
+          <ScalarProperty Name="JFM21_FC" ColumnName="JFM21_FC" />
+          <ScalarProperty Name="AMJ21_FC" ColumnName="AMJ21_FC" />
+          <ScalarProperty Name="AMJ21_ACT" ColumnName="AMJ21_ACT" />
+          <ScalarProperty Name="JAS21_FC" ColumnName="JAS21_FC" />
+          <ScalarProperty Name="JAS21_ACT" ColumnName="JAS21_ACT" />
+          <ScalarProperty Name="OND21_FC" ColumnName="OND21_FC" />
+          <ScalarProperty Name="OND18_ACT" ColumnName="OND18_ACT" />
+          <ScalarProperty Name="JFM22_FC" ColumnName="JFM22_FC" />
+          <ScalarProperty Name="JFM19_ACT" ColumnName="JFM19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHDetails_Comparision_OldDetails" FunctionName="FinanceToolModel.Store.Usp_GetDUHDetails_Comparision_OldDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHDetails_Comparision_OldDetails_Result">
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUHEADID" ColumnName="DUHEADID" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="SowStatus1" ColumnName="SowStatus1" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="JFM20_FC" ColumnName="JFM20_FC" />
+          <ScalarProperty Name="JFM20_ACT" ColumnName="JFM20_ACT" />
+          <ScalarProperty Name="AMJ20_FC" ColumnName="AMJ20_FC" />
+          <ScalarProperty Name="AMJ20_ACT" ColumnName="AMJ20_ACT" />
+          <ScalarProperty Name="JAS20_FC" ColumnName="JAS20_FC" />
+          <ScalarProperty Name="JAS20_ACT" ColumnName="JAS20_ACT" />
+          <ScalarProperty Name="OND20_FC" ColumnName="OND20_FC" />
+          <ScalarProperty Name="OND20_ACT" ColumnName="OND20_ACT" />
+          <ScalarProperty Name="JFM21_ACT" ColumnName="JFM21_ACT" />
+          <ScalarProperty Name="JFM21_FC" ColumnName="JFM21_FC" />
+          <ScalarProperty Name="AMJ21_FC" ColumnName="AMJ21_FC" />
+          <ScalarProperty Name="AMJ21_ACT" ColumnName="AMJ21_ACT" />
+          <ScalarProperty Name="JAS21_FC" ColumnName="JAS21_FC" />
+          <ScalarProperty Name="JAS21_ACT" ColumnName="JAS21_ACT" />
+          <ScalarProperty Name="OND21_FC" ColumnName="OND21_FC" />
+          <ScalarProperty Name="OND18_ACT" ColumnName="OND18_ACT" />
+          <ScalarProperty Name="JFM22_FC" ColumnName="JFM22_FC" />
+          <ScalarProperty Name="JFM19_ACT" ColumnName="JFM19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHDetails_Comparision_V1" FunctionName="FinanceToolModel.Store.Usp_GetDUHDetails_Comparision_V1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHDetails_Comparision_V1_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUHEADID" ColumnName="DUHEADID" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="SowStatus1" ColumnName="SowStatus1" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="JFM20_FC" ColumnName="JFM20_FC" />
+          <ScalarProperty Name="JFM20_ACT" ColumnName="JFM20_ACT" />
+          <ScalarProperty Name="AMJ20_FC" ColumnName="AMJ20_FC" />
+          <ScalarProperty Name="AMJ20_ACT" ColumnName="AMJ20_ACT" />
+          <ScalarProperty Name="JAS20_FC" ColumnName="JAS20_FC" />
+          <ScalarProperty Name="JAS20_ACT" ColumnName="JAS20_ACT" />
+          <ScalarProperty Name="OND20_FC" ColumnName="OND20_FC" />
+          <ScalarProperty Name="OND20_ACT" ColumnName="OND20_ACT" />
+          <ScalarProperty Name="JFM21_ACT" ColumnName="JFM21_ACT" />
+          <ScalarProperty Name="JFM21_FC" ColumnName="JFM21_FC" />
+          <ScalarProperty Name="AMJ21_FC" ColumnName="AMJ21_FC" />
+          <ScalarProperty Name="AMJ21_ACT" ColumnName="AMJ21_ACT" />
+          <ScalarProperty Name="JAS21_FC" ColumnName="JAS21_FC" />
+          <ScalarProperty Name="JAS21_ACT" ColumnName="JAS21_ACT" />
+          <ScalarProperty Name="OND21_FC" ColumnName="OND21_FC" />
+          <ScalarProperty Name="OND18_ACT" ColumnName="OND18_ACT" />
+          <ScalarProperty Name="JFM22_FC" ColumnName="JFM22_FC" />
+          <ScalarProperty Name="JFM19_ACT" ColumnName="JFM19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHDetails_Comparision_V2" FunctionName="FinanceToolModel.Store.Usp_GetDUHDetails_Comparision_V2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHDetails_Comparision_V2_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUHEADID" ColumnName="DUHEADID" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="SOWStatus1" ColumnName="SOWStatus1" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="JFM20_FC" ColumnName="JFM20_FC" />
+          <ScalarProperty Name="JFM20_ACT" ColumnName="JFM20_ACT" />
+          <ScalarProperty Name="AMJ20_FC" ColumnName="AMJ20_FC" />
+          <ScalarProperty Name="AMJ20_ACT" ColumnName="AMJ20_ACT" />
+          <ScalarProperty Name="JAS20_FC" ColumnName="JAS20_FC" />
+          <ScalarProperty Name="JAS20_ACT" ColumnName="JAS20_ACT" />
+          <ScalarProperty Name="OND20_FC" ColumnName="OND20_FC" />
+          <ScalarProperty Name="OND20_ACT" ColumnName="OND20_ACT" />
+          <ScalarProperty Name="JFM21_FC" ColumnName="JFM21_FC" />
+          <ScalarProperty Name="JFM21_ACT" ColumnName="JFM21_ACT" />
+          <ScalarProperty Name="AMJ21_FC" ColumnName="AMJ21_FC" />
+          <ScalarProperty Name="AMJ21_ACT" ColumnName="AMJ21_ACT" />
+          <ScalarProperty Name="JAS21_FC" ColumnName="JAS21_FC" />
+          <ScalarProperty Name="JAS21_ACT" ColumnName="JAS21_ACT" />
+          <ScalarProperty Name="OND21_FC" ColumnName="OND21_FC" />
+          <ScalarProperty Name="OND18_ACT" ColumnName="OND18_ACT" />
+          <ScalarProperty Name="JFM22_FC" ColumnName="JFM22_FC" />
+          <ScalarProperty Name="JFM19_ACT" ColumnName="JFM19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHeadMainDetails" FunctionName="FinanceToolModel.Store.Usp_GetDUHeadMainDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHeadMainDetails_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19 FC" />
+          <ScalarProperty Name="AMJ19_Act" ColumnName="AMJ19 Act" />
+          <ScalarProperty Name="Note_Comment" ColumnName="Note/Comment" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHMainDetails" FunctionName="FinanceToolModel.Store.Usp_GetDUHMainDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHMainDetails_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="SowStatus1" ColumnName="SowStatus1" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="JFM20_FC" ColumnName="JFM20_FC" />
+          <ScalarProperty Name="JFM20_ACT" ColumnName="JFM20_ACT" />
+          <ScalarProperty Name="AMJ20_FC" ColumnName="AMJ20_FC" />
+          <ScalarProperty Name="AMJ20_ACT" ColumnName="AMJ20_ACT" />
+          <ScalarProperty Name="JAS20_FC" ColumnName="JAS20_FC" />
+          <ScalarProperty Name="JAS20_ACT" ColumnName="JAS20_ACT" />
+          <ScalarProperty Name="OND20_FC" ColumnName="OND20_FC" />
+          <ScalarProperty Name="OND20_ACT" ColumnName="OND20_ACT" />
+          <ScalarProperty Name="JFM21_ACT" ColumnName="JFM21_ACT" />
+          <ScalarProperty Name="JFM21_FC" ColumnName="JFM21_FC" />
+          <ScalarProperty Name="AMJ21_FC" ColumnName="AMJ21_FC" />
+          <ScalarProperty Name="AMJ21_ACT" ColumnName="AMJ21_ACT" />
+          <ScalarProperty Name="JAS21_FC" ColumnName="JAS21_FC" />
+          <ScalarProperty Name="JAS21_ACT" ColumnName="JAS21_ACT" />
+          <ScalarProperty Name="OND21_FC" ColumnName="OND21_FC" />
+          <ScalarProperty Name="OND18_ACT" ColumnName="OND18_ACT" />
+          <ScalarProperty Name="JFM22_FC" ColumnName="JFM22_FC" />
+          <ScalarProperty Name="JFM19_ACT" ColumnName="JFM19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHMainDetails_07_02_2019" FunctionName="FinanceToolModel.Store.Usp_GetDUHMainDetails_07_02_2019">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHMainDetails_07_02_2019_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHMainDetails_27_06_2019" FunctionName="FinanceToolModel.Store.Usp_GetDUHMainDetails_27_06_2019">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHMainDetails_27_06_2019_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHMainDetails_27_06_2019_backup" FunctionName="FinanceToolModel.Store.Usp_GetDUHMainDetails_27_06_2019_backup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHMainDetails_27_06_2019_backup_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHMainDetails_V1" FunctionName="FinanceToolModel.Store.Usp_GetDUHMainDetails_V1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHMainDetails_V1_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="SowStatus1" ColumnName="SowStatus1" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="JFM20_FC" ColumnName="JFM20_FC" />
+          <ScalarProperty Name="JFM20_ACT" ColumnName="JFM20_ACT" />
+          <ScalarProperty Name="AMJ20_FC" ColumnName="AMJ20_FC" />
+          <ScalarProperty Name="AMJ20_ACT" ColumnName="AMJ20_ACT" />
+          <ScalarProperty Name="JAS20_FC" ColumnName="JAS20_FC" />
+          <ScalarProperty Name="JAS20_ACT" ColumnName="JAS20_ACT" />
+          <ScalarProperty Name="OND20_FC" ColumnName="OND20_FC" />
+          <ScalarProperty Name="OND20_ACT" ColumnName="OND20_ACT" />
+          <ScalarProperty Name="JFM21_ACT" ColumnName="JFM21_ACT" />
+          <ScalarProperty Name="JFM21_FC" ColumnName="JFM21_FC" />
+          <ScalarProperty Name="AMJ21_FC" ColumnName="AMJ21_FC" />
+          <ScalarProperty Name="AMJ21_ACT" ColumnName="AMJ21_ACT" />
+          <ScalarProperty Name="JAS21_FC" ColumnName="JAS21_FC" />
+          <ScalarProperty Name="JAS21_ACT" ColumnName="JAS21_ACT" />
+          <ScalarProperty Name="OND21_FC" ColumnName="OND21_FC" />
+          <ScalarProperty Name="OND18_ACT" ColumnName="OND18_ACT" />
+          <ScalarProperty Name="JFM22_FC" ColumnName="JFM22_FC" />
+          <ScalarProperty Name="JFM19_ACT" ColumnName="JFM19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHMainDetails_V2" FunctionName="FinanceToolModel.Store.Usp_GetDUHMainDetails_V2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHMainDetails_V2_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="SOWStatus1" ColumnName="SOWStatus1" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="JFM20_FC" ColumnName="JFM20_FC" />
+          <ScalarProperty Name="JFM20_ACT" ColumnName="JFM20_ACT" />
+          <ScalarProperty Name="AMJ20_FC" ColumnName="AMJ20_FC" />
+          <ScalarProperty Name="AMJ20_ACT" ColumnName="AMJ20_ACT" />
+          <ScalarProperty Name="JAS20_FC" ColumnName="JAS20_FC" />
+          <ScalarProperty Name="JAS20_ACT" ColumnName="JAS20_ACT" />
+          <ScalarProperty Name="OND20_FC" ColumnName="OND20_FC" />
+          <ScalarProperty Name="OND20_ACT" ColumnName="OND20_ACT" />
+          <ScalarProperty Name="JFM21_FC" ColumnName="JFM21_FC" />
+          <ScalarProperty Name="JFM21_ACT" ColumnName="JFM21_ACT" />
+          <ScalarProperty Name="AMJ21_FC" ColumnName="AMJ21_FC" />
+          <ScalarProperty Name="AMJ21_ACT" ColumnName="AMJ21_ACT" />
+          <ScalarProperty Name="JAS21_FC" ColumnName="JAS21_FC" />
+          <ScalarProperty Name="JAS21_ACT" ColumnName="JAS21_ACT" />
+          <ScalarProperty Name="OND21_FC" ColumnName="OND21_FC" />
+          <ScalarProperty Name="OND18_ACT" ColumnName="OND18_ACT" />
+          <ScalarProperty Name="JFM22_FC" ColumnName="JFM22_FC" />
+          <ScalarProperty Name="JFM19_ACT" ColumnName="JFM19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHMainDetailsByUserID" FunctionName="FinanceToolModel.Store.Usp_GetDUHMainDetailsByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHMainDetailsByUserID_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUHEADID" ColumnName="DUHEADID" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="SowStatus1" ColumnName="SowStatus1" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="JFM20_FC" ColumnName="JFM20_FC" />
+          <ScalarProperty Name="JFM20_ACT" ColumnName="JFM20_ACT" />
+          <ScalarProperty Name="AMJ20_FC" ColumnName="AMJ20_FC" />
+          <ScalarProperty Name="AMJ20_ACT" ColumnName="AMJ20_ACT" />
+          <ScalarProperty Name="JAS20_FC" ColumnName="JAS20_FC" />
+          <ScalarProperty Name="JAS20_ACT" ColumnName="JAS20_ACT" />
+          <ScalarProperty Name="OND20_FC" ColumnName="OND20_FC" />
+          <ScalarProperty Name="OND20_ACT" ColumnName="OND20_ACT" />
+          <ScalarProperty Name="JFM21_ACT" ColumnName="JFM21_ACT" />
+          <ScalarProperty Name="JFM21_FC" ColumnName="JFM21_FC" />
+          <ScalarProperty Name="AMJ21_FC" ColumnName="AMJ21_FC" />
+          <ScalarProperty Name="AMJ21_ACT" ColumnName="AMJ21_ACT" />
+          <ScalarProperty Name="JAS21_FC" ColumnName="JAS21_FC" />
+          <ScalarProperty Name="JAS21_ACT" ColumnName="JAS21_ACT" />
+          <ScalarProperty Name="OND21_FC" ColumnName="OND21_FC" />
+          <ScalarProperty Name="OND18_ACT" ColumnName="OND18_ACT" />
+          <ScalarProperty Name="JFM22_FC" ColumnName="JFM22_FC" />
+          <ScalarProperty Name="JFM19_ACT" ColumnName="JFM19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHMainDetailsByUserID_V1" FunctionName="FinanceToolModel.Store.Usp_GetDUHMainDetailsByUserID_V1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHMainDetailsByUserID_V1_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUHEADID" ColumnName="DUHEADID" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="SowStatus1" ColumnName="SowStatus1" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="JFM20_FC" ColumnName="JFM20_FC" />
+          <ScalarProperty Name="JFM20_ACT" ColumnName="JFM20_ACT" />
+          <ScalarProperty Name="AMJ20_FC" ColumnName="AMJ20_FC" />
+          <ScalarProperty Name="AMJ20_ACT" ColumnName="AMJ20_ACT" />
+          <ScalarProperty Name="JAS20_FC" ColumnName="JAS20_FC" />
+          <ScalarProperty Name="JAS20_ACT" ColumnName="JAS20_ACT" />
+          <ScalarProperty Name="OND20_FC" ColumnName="OND20_FC" />
+          <ScalarProperty Name="OND20_ACT" ColumnName="OND20_ACT" />
+          <ScalarProperty Name="JFM21_ACT" ColumnName="JFM21_ACT" />
+          <ScalarProperty Name="JFM21_FC" ColumnName="JFM21_FC" />
+          <ScalarProperty Name="AMJ21_FC" ColumnName="AMJ21_FC" />
+          <ScalarProperty Name="AMJ21_ACT" ColumnName="AMJ21_ACT" />
+          <ScalarProperty Name="JAS21_FC" ColumnName="JAS21_FC" />
+          <ScalarProperty Name="JAS21_ACT" ColumnName="JAS21_ACT" />
+          <ScalarProperty Name="OND21_FC" ColumnName="OND21_FC" />
+          <ScalarProperty Name="OND18_ACT" ColumnName="OND18_ACT" />
+          <ScalarProperty Name="JFM22_FC" ColumnName="JFM22_FC" />
+          <ScalarProperty Name="JFM19_ACT" ColumnName="JFM19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUHMainDetailsByUserID_V2" FunctionName="FinanceToolModel.Store.Usp_GetDUHMainDetailsByUserID_V2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUHMainDetailsByUserID_V2_Result">
+          <ScalarProperty Name="S_No" ColumnName="S_No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUHEADID" ColumnName="DUHEADID" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="SowStatus" ColumnName="SowStatus" />
+          <ScalarProperty Name="SOWStatus1" ColumnName="SOWStatus1" />
+          <ScalarProperty Name="DealStagestatus" ColumnName="DealStagestatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="AMJ19_FC" ColumnName="AMJ19_FC" />
+          <ScalarProperty Name="JAS19_FC" ColumnName="JAS19_FC" />
+          <ScalarProperty Name="OND19_FC" ColumnName="OND19_FC" />
+          <ScalarProperty Name="AMJ19_ACT" ColumnName="AMJ19_ACT" />
+          <ScalarProperty Name="JAS19_ACT" ColumnName="JAS19_ACT" />
+          <ScalarProperty Name="OND19_ACT" ColumnName="OND19_ACT" />
+          <ScalarProperty Name="JFM20_FC" ColumnName="JFM20_FC" />
+          <ScalarProperty Name="JFM20_ACT" ColumnName="JFM20_ACT" />
+          <ScalarProperty Name="AMJ20_FC" ColumnName="AMJ20_FC" />
+          <ScalarProperty Name="AMJ20_ACT" ColumnName="AMJ20_ACT" />
+          <ScalarProperty Name="JAS20_FC" ColumnName="JAS20_FC" />
+          <ScalarProperty Name="JAS20_ACT" ColumnName="JAS20_ACT" />
+          <ScalarProperty Name="OND20_FC" ColumnName="OND20_FC" />
+          <ScalarProperty Name="OND20_ACT" ColumnName="OND20_ACT" />
+          <ScalarProperty Name="JFM21_FC" ColumnName="JFM21_FC" />
+          <ScalarProperty Name="JFM21_ACT" ColumnName="JFM21_ACT" />
+          <ScalarProperty Name="AMJ21_FC" ColumnName="AMJ21_FC" />
+          <ScalarProperty Name="AMJ21_ACT" ColumnName="AMJ21_ACT" />
+          <ScalarProperty Name="JAS21_FC" ColumnName="JAS21_FC" />
+          <ScalarProperty Name="JAS21_ACT" ColumnName="JAS21_ACT" />
+          <ScalarProperty Name="OND21_FC" ColumnName="OND21_FC" />
+          <ScalarProperty Name="OND18_ACT" ColumnName="OND18_ACT" />
+          <ScalarProperty Name="JFM22_FC" ColumnName="JFM22_FC" />
+          <ScalarProperty Name="JFM19_ACT" ColumnName="JFM19_ACT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUMasterDetails" FunctionName="FinanceToolModel.Store.Usp_GetDUMasterDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetDUMasterDetails_Result">
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="SDUName" ColumnName="SDUName" />
+          <ScalarProperty Name="DUHeadID" ColumnName="DUHeadID" />
+          <ScalarProperty Name="DUHeadName" ColumnName="DUHeadName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetOpportunityDetails" FunctionName="FinanceToolModel.Store.Usp_GetOpportunityDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetOpportunityDetails_Result">
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetPMOOpportunityDetails" FunctionName="FinanceToolModel.Store.Usp_GetPMOOpportunityDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetPMOOpportunityDetails_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="OpportunityKeyID" ColumnName="OpportunityKeyID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="DealStage" ColumnName="DealStage" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AMJ19" ColumnName="AMJ19" />
+          <ScalarProperty Name="JAS19" ColumnName="JAS19" />
+          <ScalarProperty Name="OND19" ColumnName="OND19" />
+          <ScalarProperty Name="OpportunityLobId" ColumnName="OpportunityLobId" />
+          <ScalarProperty Name="OpportunityLobName" ColumnName="OpportunityLobName" />
+          <ScalarProperty Name="SowStatusValue" ColumnName="SowStatusValue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetProjectMasterDetails" FunctionName="FinanceToolModel.Store.Usp_GetProjectMasterDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetProjectMasterDetails_Result">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="SowStatusID" ColumnName="SowStatusID" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetSDUMasterDetails" FunctionName="FinanceToolModel.Store.Usp_GetSDUMasterDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetSDUMasterDetails_Result">
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="SDUName" ColumnName="SDUName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetUserMasterDetails" FunctionName="FinanceToolModel.Store.Usp_GetUserMasterDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetUserMasterDetails_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="ISActive" ColumnName="ISActive" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_InsertOpportunityLatest" FunctionName="FinanceToolModel.Store.Usp_InsertOpportunityLatest" />
+    <FunctionImportMapping FunctionImportName="Usp_Update_Opportunity_IsMapped" FunctionName="FinanceToolModel.Store.Usp_Update_Opportunity_IsMapped" />
+    <FunctionImportMapping FunctionImportName="Usp_UpdateIsActiveQuaters" FunctionName="FinanceToolModel.Store.Usp_UpdateIsActiveQuaters" />
+    <FunctionImportMapping FunctionImportName="Usp_UpdateOpportunity" FunctionName="FinanceToolModel.Store.Usp_UpdateOpportunity" />
+    <FunctionImportMapping FunctionImportName="Usp_UpdateOpportunityLatest" FunctionName="FinanceToolModel.Store.Usp_UpdateOpportunityLatest" />
+    <FunctionImportMapping FunctionImportName="Usp_GetForecastValues" FunctionName="FinanceToolModel.Store.Usp_GetForecastValues">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel.Usp_GetForecastValues_Result">
+          <ScalarProperty Name="ForecastValues" ColumnName="ForecastValues" />
+          <ScalarProperty Name="QuaterName" ColumnName="QuaterName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

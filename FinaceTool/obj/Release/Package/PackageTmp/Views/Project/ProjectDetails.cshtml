@@ -1,0 +1,221 @@
+﻿@{
+    /**/
+
+   // Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+<div class="card-header">
+    <i class="fas fa-table"></i>
+    Project Details
+</div>
+<br />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    $(function () {
+        debugger;
+        $("#Demogrid").jqGrid
+            ({
+                url: "/Project/GetProjects",
+                datatype: 'json',
+                mtype: 'Get',
+                //table header name
+                colNames: ['ProjectID', 'Project Name', 'Project Code', 'Opportunity Name', 'SOW Status', 'PO Available', 'PO Balance', 'Note', 'Created By', 'Created Date', 'Modified By', 'Modified Date'],
+                //colModel takes the data from controller and binds to grid
+                colModel: [
+                    {
+                        name: 'ProjectID',
+                        editable: true,
+                        key: true,
+                        hidden: true,
+                        //search: false
+                    },
+                    {
+                        name: "ProjectName", editable: true, editrules: { required: true }/*search: true*/
+                    },
+                    {
+                        name: "ProjectCode", editable: true, editrules: { required: true }
+                    },
+
+                    {
+                        key: false, hidden: false, name: 'OpportunityName', editable: true, edittype: "select",
+                        editrules: { custom: true, custom_func: check },
+
+                        editoptions: {
+                            aysnc: false, dataUrl: "/Project/GetOpportunityNames?" + new Date(), formatter: 'select',
+                            buildSelect: function (response) {
+                                return response;
+                            }
+                        },
+                    },
+                    {
+                        key: false, hidden: false, name: 'SowStatus', editable: true, edittype: "select",
+                        editoptions: {
+                            aysnc: false, dataUrl: "/Project/GetSOWstatus?" + new Date(), formatter: 'select',
+                            buildSelect: function (response) {
+                                return response;
+                            }
+                        },
+                    },
+
+                    {
+                        key: false, hidden: false, name: 'poavilable', editable: true, edittype: "select",
+
+                        editoptions: {
+
+                            value: "1:Yes;0:NO",
+
+
+                            dataEvents: [
+                                {
+                                    type: 'change',
+                                    fn: function (e) {
+
+
+                                        var v = $(e.target).val();
+
+                                        if (v == 0) {
+
+                                            $('input[name *= "pobalance"]').attr("disabled", true);
+                                        }
+                                        else {
+
+                                            $('input[name *= "pobalance"]').attr("disabled", false);
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                    },
+
+                    {
+                        name: "pobalance", editable: true, editrules: { required: false }/*search: true*/
+                    },
+
+                    {
+                        name: "Note", editable: true, editrules: { required: true }/*search: true*/
+                    },
+                    {
+                        name: 'Createdby', editable: false, editrules: { required: false }, search: true
+                    },
+                    {
+                        name: "Createddate",
+                        formatter: 'date', formatoptions: {
+                            srcformat: "Y-m-d H:i:s",
+                            newformat: "m/d/Y H:i",
+                            userLocalTime: true
+                        }, editable: false, editrules: { required: false }, search: false
+                    },
+                    {
+                        name: "Modifiedby", editable: false, editrules: { required: false }, search: false
+                    },
+                    {
+                        name: "ModifiedDate",
+                        formatter: 'date', formatoptions: {
+                            srcformat: "Y-m-d H:i:s",
+                            newformat: "m/d/Y H:i",
+                            userLocalTime: true
+                        }, editable: false, editrules: { required: false, number: false }, search: false
+                    },
+                ],
+                height: '100%',
+                viewrecords: true,
+                caption: 'Edit/Update Project',
+                emptyrecords: 'No records',
+                rowNum: 10,
+                pager: jQuery('#pager'),
+                rowList: [10, 20, 30, 40],
+                jsonReader:
+                {
+                    root: "rows",
+                    page: "page",
+                    total: "total",
+                    records: "records",
+                    repeatitems: false,
+                    Id: "0"
+                },
+                autowidth: true
+            }).navGrid('#pager',
+                {
+                    edit: true,
+                    add: true,
+                    del: false,
+                    search: false,
+                    refresh: false,
+                    closeAfterSearch: true
+                },
+                {
+                    // edit option
+                    zIndex: 100,
+                    url: '/Project/Edit',
+                    closeOnEscape: true,
+                    closeAfterEdit: true,
+                    recreateForm: true,
+                    afterComplete: function (response) {
+                        if (response.responseText) {
+                            alert(response.responseText);
+                        }
+                    }
+                },
+                {
+                    // add option
+                    zIndex: 100,
+                    url: "/Project/Create",
+                    closeOnEscape: true,
+                    closeAfterAdd: true,
+                    afterComplete: function (response) {
+                        if (response.responseJSON) {
+                            if (response.responseJSON == "Saved Successfully") {
+                                alert("Saved Successfully");
+                            }
+                            else {
+                                var message = "";
+                                for (var i = 0; i < response.responseJSON.length; i++) {
+                                    message += response.responseJSON[i];
+                                    message += "\n";
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    // delete option
+                    zIndex: 100,
+                    url: "/Project/Delete",
+                    closeOnEscape: true,
+                    closeAfterDelete: true,
+                    recreateForm: true,
+                    msg: "Are you sure you want to delete this project?",
+                    afterComplete: function (response) {
+                        if (response.responseText) {
+                            alert(response.responseText);
+                        }
+                    }
+                }
+            );
+    });
+</script>
+<script>
+
+    check = function (value, columnname) {
+
+        if (value == 0) {
+
+            return [false, "Please Select an Opportunity"];
+        }
+        else {
+
+            return [true, ""];
+        }
+    };
+
+
+
+
+</script>
+<div>
+    <table id="Demogrid"></table>
+    <div id="pager"></div>
+</div>
+
+

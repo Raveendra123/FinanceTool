@@ -1,0 +1,80 @@
+﻿@model FinaceTool.Models.LoginModel
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewBag.Title = "Finance Tool - Login";
+}
+
+
+<link href="~/Content/loginstyle.css" rel="stylesheet" />
+<script src="~/Scripts/rainbows.js"></script>
+
+<script>
+    function LoginValidation() {
+        if ($("#Username").val() == "") {
+            alert("Please enter the Sap Id");
+            return false;
+        }
+        if ($("#Password").val() == "") {
+            alert("Please enter the password");
+            return false;
+        }
+    }
+
+    function ForgetPassword() {
+        if ($("#Username").val() == "") {
+            alert("Please enter the Sap Id");
+            return false;
+        }
+        $.ajax({
+            url: "/Login/ForgetPassword",
+            type: "get",
+            data: "Username=" + $("#Username").val(),
+            async: false,
+            success: function (data) {
+                alert(data);
+            }
+        });
+    }
+</script>
+
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+@using (Html.BeginForm("Index","Login",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <body>
+        <div class="jumbotron" style="background-color:#fff; margin:0px!important; padding:40px 0px 0px 0px; ">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                        <div class="panel panel-success panel-set">
+                            <div class="panel-heading">
+                                Login
+                            </div>
+                            <div class="panel-body">
+                                <label>Enter Username</label>
+                                @Html.ValidationMessageFor(model => model.Username)
+                                @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+
+                                <label>Enter Password </label>
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Password)
+
+
+                                <hr>
+                                <span> <button onclick="return LoginValidation();" type="submit" id="filterButton" name="Search" class="btn btn-primary">Sign In </button></span>
+                                <span class="pull-right"><a onclick="return ForgetPassword();" style="font-size: 12px; color:#428bca;">Forgot Password?</a></span>
+                            </div>
+                            <div class="panel-footer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </body>
+}

@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinanceToolModel1StoreContainer" CdmEntityContainer="FinanceToolEntities">
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="FinanceToolModel1.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DealStages">
+      <EntityTypeMapping TypeName="FinanceToolModel1.DealStage">
+        <MappingFragment StoreEntitySet="DealStage">
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="DealStage1" ColumnName="DealStage" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="probability" ColumnName="probability" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DUs">
+      <EntityTypeMapping TypeName="FinanceToolModel1.DU">
+        <MappingFragment StoreEntitySet="DU">
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUHeadID" ColumnName="DUHeadID" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOBs">
+      <EntityTypeMapping TypeName="FinanceToolModel1.LOB">
+        <MappingFragment StoreEntitySet="LOB">
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Opportunities">
+      <EntityTypeMapping TypeName="FinanceToolModel1.Opportunity">
+        <MappingFragment StoreEntitySet="Opportunity">
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="DealStageID" ColumnName="DealStageID" />
+          <ScalarProperty Name="SowStatusID" ColumnName="SowStatusID" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="DBBLDUID" ColumnName="DBBLDUID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="SalesForceCastID" ColumnName="SalesForceCastID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpportunityForecastBySales">
+      <EntityTypeMapping TypeName="FinanceToolModel1.OpportunityForecastBySale">
+        <MappingFragment StoreEntitySet="OpportunityForecastBySales">
+          <ScalarProperty Name="SalesForceCastID" ColumnName="SalesForceCastID" />
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="forecastvaluebysales" ColumnName="forecastvaluebysales" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpportunityForecastBySales2">
+      <EntityTypeMapping TypeName="FinanceToolModel1.OpportunityForecastBySales2">
+        <MappingFragment StoreEntitySet="OpportunityForecastBySales2">
+          <ScalarProperty Name="SalesForceCastID" ColumnName="SalesForceCastID" />
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="forecastvaluebysales" ColumnName="forecastvaluebysales" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductGroups">
+      <EntityTypeMapping TypeName="FinanceToolModel1.ProductGroup">
+        <MappingFragment StoreEntitySet="ProductGroup">
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="ProductGroupName" ColumnName="ProductGroupName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="FinanceToolModel1.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="SowStatusID" ColumnName="SowStatusID" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectActualByDUHs">
+      <EntityTypeMapping TypeName="FinanceToolModel1.ProjectActualByDUH">
+        <MappingFragment StoreEntitySet="ProjectActualByDUH">
+          <ScalarProperty Name="duhactualid" ColumnName="duhactualid" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="QuaterName" ColumnName="QuaterName" />
+          <ScalarProperty Name="actualvaluebyduh" ColumnName="actualvaluebyduh" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectForecastByDUHs">
+      <EntityTypeMapping TypeName="FinanceToolModel1.ProjectForecastByDUH">
+        <MappingFragment StoreEntitySet="ProjectForecastByDUH">
+          <ScalarProperty Name="DUhforecastid" ColumnName="DUhforecastid" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="QuaterName" ColumnName="QuaterName" />
+          <ScalarProperty Name="forecastvaluebyduh" ColumnName="forecastvaluebyduh" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quaters">
+      <EntityTypeMapping TypeName="FinanceToolModel1.Quater">
+        <MappingFragment StoreEntitySet="Quater">
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="StratDate" ColumnName="StratDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="QuaterName" ColumnName="QuaterName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="QuaterNumber" ColumnName="QuaterNumber" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quater1">
+      <EntityTypeMapping TypeName="FinanceToolModel1.Quater1">
+        <MappingFragment StoreEntitySet="Quater1">
+          <ScalarProperty Name="QuaterID" ColumnName="QuaterID" />
+          <ScalarProperty Name="StratDate" ColumnName="StratDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="QuaterName" ColumnName="QuaterName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="QuaterNumber" ColumnName="QuaterNumber" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="FinanceToolModel1.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SDUs">
+      <EntityTypeMapping TypeName="FinanceToolModel1.SDU">
+        <MappingFragment StoreEntitySet="SDU">
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="SDUName" ColumnName="SDUName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceLines">
+      <EntityTypeMapping TypeName="FinanceToolModel1.ServiceLine">
+        <MappingFragment StoreEntitySet="ServiceLine">
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ServiceLineName" ColumnName="ServiceLineName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOWStatus">
+      <EntityTypeMapping TypeName="FinanceToolModel1.SOWStatu">
+        <MappingFragment StoreEntitySet="SOWStatus">
+          <ScalarProperty Name="SOWStatusID" ColumnName="SOWStatusID" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="FinanceToolModel1.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="ISActive" ColumnName="ISActive" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccesses">
+      <EntityTypeMapping TypeName="FinanceToolModel1.UserAccess">
+        <MappingFragment StoreEntitySet="UserAccess">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="Enddate" ColumnName="Enddate" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="database_firewall_rules">
+      <EntityTypeMapping TypeName="FinanceToolModel1.database_firewall_rules">
+        <MappingFragment StoreEntitySet="database_firewall_rules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AMTable" FunctionName="FinanceToolModel1.Store.AMTable">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel1.AMTable_Result">
+          <ScalarProperty Name="S_No" ColumnName="S.No" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="DBBLDU" ColumnName="DBBLDU" />
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ServiceLine" ColumnName="ServiceLine" />
+          <ScalarProperty Name="ServiceLineID" ColumnName="ServiceLineID" />
+          <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="TCV" ColumnName="TCV" />
+          <ScalarProperty Name="acv" ColumnName="acv" />
+          <ScalarProperty Name="sowvalue" ColumnName="sowvalue" />
+          <ScalarProperty Name="DealStage" ColumnName="DealStage" />
+          <ScalarProperty Name="BillingStratDate" ColumnName="BillingStratDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="QuaterName" ColumnName="QuaterName" />
+          <ScalarProperty Name="forecastvaluebysales" ColumnName="forecastvaluebysales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDUMasterDetails" FunctionName="FinanceToolModel1.Store.Usp_GetDUMasterDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel1.Usp_GetDUMasterDetails_Result">
+          <ScalarProperty Name="DUID" ColumnName="DUID" />
+          <ScalarProperty Name="AMID" ColumnName="AMID" />
+          <ScalarProperty Name="AMName" ColumnName="AMName" />
+          <ScalarProperty Name="DUName" ColumnName="DUName" />
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="SDUName" ColumnName="SDUName" />
+          <ScalarProperty Name="DUHeadID" ColumnName="DUHeadID" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetProjectMasterDetails" FunctionName="FinanceToolModel1.Store.Usp_GetProjectMasterDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel1.Usp_GetProjectMasterDetails_Result">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="OpportunityName" ColumnName="OpportunityName" />
+          <ScalarProperty Name="SowStatusID" ColumnName="SowStatusID" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="poavilable" ColumnName="poavilable" />
+          <ScalarProperty Name="pobalance" ColumnName="pobalance" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetSDUMasterDetails" FunctionName="FinanceToolModel1.Store.Usp_GetSDUMasterDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceToolModel1.Usp_GetSDUMasterDetails_Result">
+          <ScalarProperty Name="SDUID" ColumnName="SDUID" />
+          <ScalarProperty Name="SDUName" ColumnName="SDUName" />
+          <ScalarProperty Name="LOBID" ColumnName="LOBID" />
+          <ScalarProperty Name="LOBName" ColumnName="LOBName" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

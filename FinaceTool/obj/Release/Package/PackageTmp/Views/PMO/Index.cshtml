@@ -1,0 +1,166 @@
+﻿@model IEnumerable<FinaceTool.Usp_GetPMOOpportunityDetails_Result>
+
+
+@{
+    // Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Operation Tracking
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.S_No)
+                        </th>
+                        <th>
+                            CustomerName
+                        </th>
+                        <th>
+                            AMName
+                        </th>
+                        <th>
+                            LobName
+                        </th>
+                        <th>
+                            DUName
+                        </th>
+                        <th>
+                            DBBLDUName
+                        </th>
+                        <th>
+                            OpportunityId
+                        </th>
+                        <th>
+                            OpportunityName
+                        </th>
+                        <th>
+                            ProjectId
+                        </th>
+                        <th>
+                            ProgramName
+                        </th>
+                        <th>
+                            ServiceLine
+                        </th>
+                        <th>
+                            ProductGroup
+                        </th>
+                        <th>
+                            TCV
+                        </th>
+                        <th>
+                            ACV
+                        </th>
+                        <th>
+                            SowStatus
+                        </th>
+                        <th>
+                            SowStatusValue
+                        </th>
+                        <th>
+                            DealStage
+                        </th>
+                        <th>
+                            BillingStartDate
+                        </th>
+                        <th>
+                            Note
+                        </th>
+                        <th>
+                            AMJ19
+                        </th>
+                        <th>
+                            JAS19
+                        </th>
+                        <th>
+                            OND19
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.S_No)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Customername)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AMName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OpportunityLobName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DUName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DBBLDU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OpportunityID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OpportunityName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProjectID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProgramName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ServiceLine)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductGroup)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TCV)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.acv)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.sowvalue)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SowStatusValue)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DealStage)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BillingStratDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.note)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AMJ19)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.JAS19)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OND19)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

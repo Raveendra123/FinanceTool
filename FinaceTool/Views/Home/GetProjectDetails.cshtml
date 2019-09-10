@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAM.cshtml";
+}
+
+@model IEnumerable<FinaceTool.Models.ViewModels.ProjectDetails>
+
+@{
+    ViewBag.Title = "Proejct details";
+}
+<style>
+</style>
+
+<div class="container">
+    <br />
+    <div style="width:90%; margin:0 auto;">
+        <table id="demoGrid" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+            <tr style="background-color:cadetblue">
+                <th>S.No</th>
+                <th>Customer Name</th>
+                <th>Am Name</th>
+                <th>LOB</th>
+                <th>DU Name</th>
+                <th>DBBL DU</th>
+                <th>Opportunity ID</th>
+                <th>Opportunity Name</th>
+                <th>Project ID</th>
+                <th>Program Name</th>
+                <th>Service Line</th>
+                <th>Product Group</th>
+                <th>TCV</th>
+                <th>ACV</th>
+                <th>SOW Value</th>
+                <th>Deal Stage</th>
+                <th>Billing Start Date</th>
+                <th>Note</th>
+                @*<th>AMJ'19 FC</th>
+                    <th>JAS'19 FC</th>
+                    <th>OND'19 FC</th>
+                    <th>JFM'20 FC</th>
+                    <th>AMJ'20 FC</th>
+                    <th>JAS'20 FC</th>
+                    <th>OND'20 FC</th>
+                    <th>JFM'21 FC</th>
+                    <th>AMJ'21 FC</th>*@
+            </tr>
+            @foreach (var temp in Model)
+            {
+                <tr>
+                    <td>@temp.SNo</td>
+                    <td>@temp.CustomerName</td>
+                    <td>@temp.AMName</td>
+                    <td>@temp.LOB</td>
+                    <td>@temp.DUName</td>
+                    <td>@temp.DBBLDU</td>
+                    <td>@temp.OpportunityID</td>
+                    <td>@temp.OpportunityName</td>
+                    <td>@temp.ProjectID</td>
+                    <td>@temp.ProgramName</td>
+                    <td>@temp.ServiceLine</td>
+                    <td>@temp.ProductGroup</td>
+                    <td>@temp.TCV</td>
+                    <td>@temp.ACV</td>
+                    <td>@temp.SOWValue</td>
+                    <td>@temp.DealStage</td>
+                    <td>@temp.BillingStartDate</td>
+                    <td>@temp.Note</td>
+                    <td>
+                        @Html.ActionLink("ADD", "GetInsertRecord", new { target = "_blank", width = "40px", height = "40px" }) | &nbsp;
+                        @Html.ActionLink("EDIT", "EDIT", new { }) | &nbsp;
+                        @Html.ActionLink("Delete", "Delete", new { }) 
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<form id="myForm">
+    <div id="AddUserForm">
+
+    </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+
+        //$('#AddUser').on('click', function () {
+        //    window.open('/Home/GetInsertRecord', '_blank', 'left=100,top=100,width=400,height=300,toolbar=1,resizable=0');
+
+        //});
+
+    });
+</script>
+
+
+
+
+
+
+
+
+

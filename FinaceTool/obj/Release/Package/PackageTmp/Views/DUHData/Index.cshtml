@@ -1,0 +1,111 @@
+﻿@model IEnumerable<FinaceTool.Models.DUHMainDetailsResult>
+
+
+@{
+    // Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        DUH Operations
+    </div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Edit</th>
+                    <th>Customer Name</th>
+                    <th>AM Name</th>
+                    <th>LOB Name</th>
+                    <th>DU Name</th>
+                    <th>DBBLDU Name</th>
+                    <th>Project ID</th>
+                    <th>Project Name</th>
+                    <th>Program Name</th>
+                    <th>Service Line</th>
+                    <th>Product Group</th>
+                    <th>SOW Status</th>
+                    <th>PO Avilable</th>
+                    <th>PO Balance ($K)</th>
+                    @foreach (var items in Model)
+                    {
+                        if (items.QuaterName != null)
+                        {
+                            for (var i = 0; i < items.QuaterName.Count; i++)
+                            {
+                                <th>@Html.DisplayFor(item => items.QuaterName[i]).ToString()</th>
+                            }
+                        }
+                    }
+                </tr>
+            </thead>
+            @*<tfoot>
+                <tr>
+                    <th>Edit</th>
+                    <th>@Html.DisplayNameFor(model => model.Customername)</th>
+                    <th>@Html.DisplayNameFor(model => model.AMName)</th>
+                    <th>@Html.DisplayNameFor(model => model.LOBName)</th>
+                    <th>@Html.DisplayNameFor(model => model.DUName)</th>
+                    <th>@Html.DisplayNameFor(model => model.DBBLDU)</th>
+                    <th>@Html.DisplayNameFor(model => model.ProjectID)</th>
+                    <th>@Html.DisplayNameFor(model => model.ProjectName)</th>
+                    <th>@Html.DisplayNameFor(model => model.ProgramName)</th>
+                    <th>@Html.DisplayNameFor(model => model.ServiceLine)</th>
+                    <th>@Html.DisplayNameFor(model => model.ProductGroup)</th>
+                    <th>@Html.DisplayNameFor(model => model.SowStatus)</th>
+                    <th>@Html.DisplayNameFor(model => model.poavilable)</th>
+                    <th>@Html.DisplayNameFor(model => model.pobalance)</th>
+                    @foreach (var items in Model)
+                    {
+                        if (items.QuaterName != null)
+                        {
+                            for (var i = 0; i < items.QuaterName.Count; i++)
+                            {
+                                <th>@Html.DisplayFor(item => items.QuaterName[i]).ToString()</th>
+                            }
+                        }
+                    }
+                </tr>
+            </tfoot>*@
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+
+                    <td>@Html.ActionLink("Edit", "EditDUHData", new { OpportunityID = item.OpportunityID, CustomerID = item.CustomerID, AMID = item.AMID, LOBID = item.OpportunityLobId, DUID = item.DUID, ServiceLineID = item.ServiceLineID })</td>
+                    <td>@Html.DisplayFor(modelItem => item.Customername)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AMName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.OpportunityLobName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DUName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DBBLDU)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProjectID)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProgramName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ServiceLine)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProductGroup)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SowStatus)</td>
+                    <td>@Html.DisplayFor(modelItem => item.poavilable)</td>
+                    <td>@Html.DisplayFor(modelItem => item.pobalance)</td>
+                    @{
+                        int cnt = 1;
+                        foreach (var QuarterItem in item.Quaterlist)
+                        {
+
+                            <td class="Grandtotal_@cnt">@Html.DisplayFor(modelitems => QuarterItem)</td>
+                            @*<td class="Subtotal_@cnt">@Html.DisplayFor(modelitems => QuarterItem)</td>*@
+                            cnt = cnt + 1;
+                        }
+                    }
+
+                </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+ </div>

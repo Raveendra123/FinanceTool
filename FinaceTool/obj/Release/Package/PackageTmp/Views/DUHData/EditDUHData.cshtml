@@ -1,0 +1,330 @@
+﻿@model FinaceTool.Models.DUHModel
+
+@{
+    /**/
+
+    ViewBag.Title = "Edit";
+    //  Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+@*<script type="text/javascript" src="~/Scripts/BusinessJs/EditDUHDatajs.js"></script>*@
+
+<link href="~/Content/tablestyle.css" rel="stylesheet" />
+
+<div style="margin-top:20px;margin-left:20px;">
+    @Html.ActionLink("Back to List", "Index", null, new { @style = "font-weight:bold;margin-left:40px;" })
+</div>
+
+
+
+@using (Html.BeginForm("UpdateDUHData", "DUHData", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("SelectedCustomer", Model.selectedcustomerText)
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Customername)
+    @Html.HiddenFor(model => model.dealstageId)
+
+    <div style="padding-left:190px;height:400px;">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" colspan="4">Update Opportunity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>  @Html.LabelFor(model => model.S_No, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>
+                        @Html.EditorFor(model => model.S_No, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.S_No, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.CustomerID, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>@Html.DropDownListFor(model => model.selectedcustomerId, new SelectList(Model.CustomerList, "CustomerID", "CustomerName"), "Please Select Customer", new { @id = "ddlcustomer", @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.AMID, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td> @Html.DropDownListFor(m => m.AMID, Model.AmUserList, "Please Select Am", new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.LOBID, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>@Html.DropDownListFor(m => m.LOBID, Model.lobList, "Please Select Lob", new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.DUID, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td> @Html.DropDownListFor(m => m.DUID, Model.duList, "Please Select Du", new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.DBBLDUID, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td> @Html.DropDownListFor(m => m.DBBLDUID, Model.duList, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.OpportunityName, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.OpportunityID, Model.OpportunityList, "Please Select Opportunity", new { @class = "form-control"  })
+                        @Html.HiddenFor(m => m.OpportunityName)
+                        @Html.Hidden("hdnOpportunityName", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.ProjectID, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.ProjectID, Model.ProjectList, "Please Select Project", new { @class = "form-control", @disabled = "disabled" })
+                        @Html.HiddenFor(m => m.ProjectName)
+                        @Html.Hidden("hdnProjectName", "")
+                        <a id="createprojectlink" href="#" data-toggle="modal" data-target="#myModal" onclick='myJavaScriptFunction();'><strong>Click Here to Create A Project</strong></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.ProgramName, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>
+                        @Html.EditorFor(model => model.ProgramName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProgramName, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.ServiceLineID, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>  @Html.DropDownListFor(m => m.ServiceLineID, Model.serviceList, "Please Select Serviceline", htmlAttributes: new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.ProductGroupID, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td> @Html.DropDownListFor(m => m.ProductGroupID, Model.ProductGroupList, "Please Select ProductGroup", new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.SowStatus, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>@Html.DropDownListFor(m => m.SowStatus, Model.SowStatusList, "Please Select Status", new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td> @Html.Label("POAvailable", htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>@Html.DropDownListFor(m => m.poavilable, Model.poAvailablelist, "Please Select poavailable", new { @class = "form-control" })</td>
+                </tr>
+                <tr id="pobalancetd">
+                    <td>@Html.Label("POBalance", htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>
+                        @Html.EditorFor(model => model.pobalance, new { htmlAttributes = new { @class = "form-control", @type = "number", @step = ".01" } })
+                        @Html.ValidationMessageFor(model => model.pobalance, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                    <td>
+                        @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                @if (Model.QuaterListData != null)
+                {
+                    for (var i = 0; i < Model.QuaterListData.Count; i++)
+                    {
+
+                        <tr>
+                            <td>
+                                @if (Model.QuaterListData[i].Contains("_FC"))
+                                {
+                                    <label class="control-label col-md-12">@Html.DisplayFor(item => Model.QuaterListData[i]).ToString().Substring(0, 12)</label>
+                                }
+                                else
+                                {
+                                    <label class="control-label col-md-12">@Html.DisplayFor(item => Model.QuaterListData[i]).ToString().Substring(0, 13)</label>
+                                }
+
+                            </td>
+                            <td>
+                                @Html.TextBox(Model.QuaterListData[i].Substring(0, 8), Model.QuaterListData[i].ToString().Split(':').GetValue(1), new { @class = "form-control", @type = "number", @step = ".01" })
+                            </td>
+                        </tr>
+                    }
+                }
+                <tr>
+                    <td colspan="2" style="text-align:center"> <input type="submit" value="Save" class="btn btn-primary" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <form enctype="multipart/form-data">
+            <div class="modal" id="myModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            @*<h4 class="modal-title">Add Project</h4>*@
+                        </div>
+                        <div class="modal-body">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" colspan="2">Create New Project</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>@Html.Label("ProjectName")</td>
+                                    <td>@Html.TextBox("ProjectName1")</td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.Label("ProjectCode")</td>
+                                    <td>@Html.TextBox("ProjectCode")</td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.Label("OpportunityName")</td>
+                                    <td>@Html.TextBox("OpportunityName1", "", new { @readonly = "readonly" })</td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.Label("SowStatus")</td>
+                                    <td>
+                                        @Html.DropDownList("SowStatus1", new List<SelectListItem>
+
+                    {
+                       new SelectListItem{ Text="SOW Drafted", Value = "1" },
+                       new SelectListItem{ Text="Awaiting Customer Sign", Value = "2" },
+                        new SelectListItem{ Text="Legal Signing", Value = "3" },
+                       new SelectListItem{ Text="CCG Stamping", Value = "4" },
+                       new SelectListItem{ Text="Dual Party Signed", Value = "5" }
+                    })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.Label("PO Available")</td>
+                                    <td>
+                                        @Html.DropDownList("poavailable1", new List<SelectListItem>
+
+                    {
+                       new SelectListItem{ Text="Yes", Value = "1" },
+                       new SelectListItem{ Text="No", Value = "0" },
+
+                    })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.Label("PO Balance")</td>
+                                    <td>@Html.TextBox("POBalance1")</td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.Label("Note")</td>
+                                    <td>@Html.TextBox("Note1")</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align:center">
+                                        @*<input type="submit" value="Save" class="btn btn-primary" />*@
+                                        <button type="button" id="btnSave" class="btn btn-default" data-dismiss="modal">Save</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                    </td>
+
+                                </tr>
+                            </table>
+                            <p>@ViewBag.opportunityName</p>
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+}
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+    var projectname = $("#ProjectID option:selected").text();
+    if (projectname == "Please Select Project") {
+
+        $('#createprojectlink').show();
+        $('#ProjectID').hide();
+    }
+    else {
+
+        $('#createprojectlink').hide();
+    }
+
+    $('#OpportunityID').change(function (evt) {
+
+        var OpportunityName = $("#OpportunityID option:selected").text();
+        $("#hdnOpportunityName").val(OpportunityName);
+
+    });
+
+
+    $('#ProjectID').change(function (evt) {
+        var ProjName = $("#ProjectID option:selected").text();
+
+        $("#hdnProjectName").val(ProjName);
+
+
+        $.ajax({
+            type: 'POST',
+            url: 'DUHData/GetBindingdetails',
+            contentType: 'application/json; charset=utf-8',
+            data: { proid: projectId, locale: 'en-US' },
+            dataType: 'json',
+            success: AjaxSucceeded,
+            error: AjaxFailed
+        });
+    });
+
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+});
+
+function myJavaScriptFunction() {
+
+    var msg = $("#OpportunityID option:selected").text();
+   
+    $('#OpportunityName1').val(msg);
+    $("#showModal").html(msg);
+    $("#myModal").modal();
+};
+
+$("#btnSave").click(function () {
+   
+    var ProjectName = document.getElementById("ProjectName1").value;
+    var ProjectCode = document.getElementById("ProjectCode").value;
+    var OpportunityName = $("#OpportunityID option:selected").val();
+    var SowStatus = $("#SowStatus1 option:selected").val();
+    var poavailable = $("#poavailable1 option:selected").val();
+    var POBalance = document.getElementById("POBalance1").value;
+    var Note1 = document.getElementById("Note1").value;
+    $.ajax({
+        url: '@Url.Content("~/DUHData/CreateProject/")',
+        type: 'POST',
+        dataType: 'application/json',
+        data: { 'ProjectName': ProjectName, 'ProjectCode': ProjectCode, 'OpportunityName': OpportunityName, 'SowStatus': SowStatus, 'poavailable': poavailable, 'POBalance': POBalance, 'Note1': Note1 },
+        success: function (result) {
+        console.log("success");
+        if (result != undefined) {
+        // $("divModalBody").html(result);
+        console.log(result);
+        window.location.reload();
+        }
+        },
+        error: function (xhr) {
+
+        var data = xhr.responseText;
+
+        alert(data.substring(13, 40));
+
+
+        window.location.reload();
+        }
+        });
+
+        });
+
+    </script>
+
+    }
+
